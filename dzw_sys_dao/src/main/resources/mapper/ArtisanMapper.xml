@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ArtisanMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Artisan" >
+    <id column="aphone" property="aphone" jdbcType="VARCHAR" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="zid" property="zid" jdbcType="INTEGER" />
+    <result column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="aname" property="aname" jdbcType="VARCHAR" />
+    <result column="asex" property="asex" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="acaid" property="acaid" jdbcType="VARCHAR" />
+    <result column="acraft" property="acraft" jdbcType="VARCHAR" />
+    <result column="azt" property="azt" jdbcType="INTEGER" />
+    <result column="alzyy" property="alzyy" jdbcType="VARCHAR" />
+    <result column="alzday" property="alzday" jdbcType="DATE" />
+    <result column="arzday" property="arzday" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    aphone, sid, zid, tid, aname, asex, address, acaid, acraft, azt, alzyy, alzday, arzday
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from artisan
+    where aphone = #{aphone,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from artisan
+    where aphone = #{aphone,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Artisan" >
+    insert into artisan (aphone, sid, zid, 
+      tid, aname, asex, address, 
+      acaid, acraft, azt, 
+      alzyy, alzday, arzday)
+    values (#{aphone,jdbcType=VARCHAR}, #{sid,jdbcType=INTEGER}, #{zid,jdbcType=INTEGER}, 
+      #{tid,jdbcType=INTEGER}, #{aname,jdbcType=VARCHAR}, #{asex,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
+      #{acaid,jdbcType=VARCHAR}, #{acraft,jdbcType=VARCHAR}, #{azt,jdbcType=INTEGER}, 
+      #{alzyy,jdbcType=VARCHAR}, #{alzday,jdbcType=DATE}, #{arzday,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Artisan" >
+    insert into artisan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aphone != null" >
+        aphone,
+      </if>
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="zid != null" >
+        zid,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="aname != null" >
+        aname,
+      </if>
+      <if test="asex != null" >
+        asex,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="acaid != null" >
+        acaid,
+      </if>
+      <if test="acraft != null" >
+        acraft,
+      </if>
+      <if test="azt != null" >
+        azt,
+      </if>
+      <if test="alzyy != null" >
+        alzyy,
+      </if>
+      <if test="alzday != null" >
+        alzday,
+      </if>
+      <if test="arzday != null" >
+        arzday,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aphone != null" >
+        #{aphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="zid != null" >
+        #{zid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="aname != null" >
+        #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="asex != null" >
+        #{asex,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="acaid != null" >
+        #{acaid,jdbcType=VARCHAR},
+      </if>
+      <if test="acraft != null" >
+        #{acraft,jdbcType=VARCHAR},
+      </if>
+      <if test="azt != null" >
+        #{azt,jdbcType=INTEGER},
+      </if>
+      <if test="alzyy != null" >
+        #{alzyy,jdbcType=VARCHAR},
+      </if>
+      <if test="alzday != null" >
+        #{alzday,jdbcType=DATE},
+      </if>
+      <if test="arzday != null" >
+        #{arzday,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Artisan" >
+    update artisan
+    <set >
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="zid != null" >
+        zid = #{zid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="aname != null" >
+        aname = #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="asex != null" >
+        asex = #{asex,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="acaid != null" >
+        acaid = #{acaid,jdbcType=VARCHAR},
+      </if>
+      <if test="acraft != null" >
+        acraft = #{acraft,jdbcType=VARCHAR},
+      </if>
+      <if test="azt != null" >
+        azt = #{azt,jdbcType=INTEGER},
+      </if>
+      <if test="alzyy != null" >
+        alzyy = #{alzyy,jdbcType=VARCHAR},
+      </if>
+      <if test="alzday != null" >
+        alzday = #{alzday,jdbcType=DATE},
+      </if>
+      <if test="arzday != null" >
+        arzday = #{arzday,jdbcType=DATE},
+      </if>
+    </set>
+    where aphone = #{aphone,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Artisan" >
+    update artisan
+    set sid = #{sid,jdbcType=INTEGER},
+      zid = #{zid,jdbcType=INTEGER},
+      tid = #{tid,jdbcType=INTEGER},
+      aname = #{aname,jdbcType=VARCHAR},
+      asex = #{asex,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      acaid = #{acaid,jdbcType=VARCHAR},
+      acraft = #{acraft,jdbcType=VARCHAR},
+      azt = #{azt,jdbcType=INTEGER},
+      alzyy = #{alzyy,jdbcType=VARCHAR},
+      alzday = #{alzday,jdbcType=DATE},
+      arzday = #{arzday,jdbcType=DATE}
+    where aphone = #{aphone,jdbcType=VARCHAR}
+  </update>
+</mapper>

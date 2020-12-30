@@ -20,9 +20,9 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://127.0.0.1:3306/element_project?useUnicode=true&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true" />
+			value="jdbc:mysql://127.0.0.1:3306/computer?useUnicode=true&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true" />
 		<property name="username" value="root" />
-		<property name="password" value="123" />
+		<property name="password" value="123456" />
 		<property name="defaultAutoCommit" value="false" />
 		<property name="initialSize" value="1" />
 		<property name="maxActive" value="60" />
@@ -46,11 +46,12 @@
 			
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:/mapper/lzx/*.xml</value>
-				<value>classpath:/mapper/lxq/*.xml</value>
-				<value>classpath:/mapper/xz/*.xml</value>
-				<value>classpath:/mapper/yj/*.xml</value>
-				<value>classpath:/mapper/pl/*.xml</value>
+				<value>classpath:/mapper/lt/*.xml</value>
+				<value>classpath:/mapper/ljh/*.xml</value>
+				<value>classpath:/mapper/yyt/*.xml</value>
+				<value>classpath:/mapper/ljy/*.xml</value>
+				<value>classpath:/mapper/tzy/*.xml</value>
+				<value>classpath:/mapper/*.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -68,15 +69,15 @@
 	<tx:advice id="transAdvice"
 		transaction-manager="transManager">
 		<tx:attributes>
-			<tx:method name="add*" propagation="REQUIRED"
+			<tx:method name="ins*" propagation="REQUIRED"
 				isolation="READ_COMMITTED" />
 				<tx:method name="insert*" propagation="REQUIRED"
 				isolation="READ_COMMITTED" />
-			<tx:method name="remove*" propagation="REQUIRED"
+			<tx:method name="del*" propagation="REQUIRED"
 				isolation="READ_COMMITTED" />
 				<tx:method name="delete*" propagation="REQUIRED"
 				isolation="READ_COMMITTED" />
-			<tx:method name="modify*" propagation="REQUIRED"
+			<tx:method name="upd*" propagation="REQUIRED"
 				isolation="READ_COMMITTED" />
 				<tx:method name="update*" propagation="REQUIRED"
 				isolation="READ_COMMITTED" />

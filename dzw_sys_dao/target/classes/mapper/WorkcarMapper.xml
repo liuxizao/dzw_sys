@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.WorkcarMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Workcar" >
+    <id column="wid" property="wid" jdbcType="INTEGER" />
+    <result column="caid" property="caid" jdbcType="VARCHAR" />
+    <result column="cbrand" property="cbrand" jdbcType="VARCHAR" />
+    <result column="czt" property="czt" jdbcType="INTEGER" />
+    <result column="qbj" property="qbj" jdbcType="REAL" />
+    <result column="ccj" property="ccj" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    wid, caid, cbrand, czt, qbj, ccj
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from workcar
+    where wid = #{wid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from workcar
+    where wid = #{wid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Workcar" >
+    insert into workcar (wid, caid, cbrand, 
+      czt, qbj, ccj)
+    values (#{wid,jdbcType=INTEGER}, #{caid,jdbcType=VARCHAR}, #{cbrand,jdbcType=VARCHAR}, 
+      #{czt,jdbcType=INTEGER}, #{qbj,jdbcType=REAL}, #{ccj,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Workcar" >
+    insert into workcar
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        wid,
+      </if>
+      <if test="caid != null" >
+        caid,
+      </if>
+      <if test="cbrand != null" >
+        cbrand,
+      </if>
+      <if test="czt != null" >
+        czt,
+      </if>
+      <if test="qbj != null" >
+        qbj,
+      </if>
+      <if test="ccj != null" >
+        ccj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        #{wid,jdbcType=INTEGER},
+      </if>
+      <if test="caid != null" >
+        #{caid,jdbcType=VARCHAR},
+      </if>
+      <if test="cbrand != null" >
+        #{cbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="czt != null" >
+        #{czt,jdbcType=INTEGER},
+      </if>
+      <if test="qbj != null" >
+        #{qbj,jdbcType=REAL},
+      </if>
+      <if test="ccj != null" >
+        #{ccj,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Workcar" >
+    update workcar
+    <set >
+      <if test="caid != null" >
+        caid = #{caid,jdbcType=VARCHAR},
+      </if>
+      <if test="cbrand != null" >
+        cbrand = #{cbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="czt != null" >
+        czt = #{czt,jdbcType=INTEGER},
+      </if>
+      <if test="qbj != null" >
+        qbj = #{qbj,jdbcType=REAL},
+      </if>
+      <if test="ccj != null" >
+        ccj = #{ccj,jdbcType=REAL},
+      </if>
+    </set>
+    where wid = #{wid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Workcar" >
+    update workcar
+    set caid = #{caid,jdbcType=VARCHAR},
+      cbrand = #{cbrand,jdbcType=VARCHAR},
+      czt = #{czt,jdbcType=INTEGER},
+      qbj = #{qbj,jdbcType=REAL},
+      ccj = #{ccj,jdbcType=REAL}
+    where wid = #{wid,jdbcType=INTEGER}
+  </update>
+</mapper>
