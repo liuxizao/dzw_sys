@@ -1,5 +1,6 @@
 package com.accp.dao.yyt;
 
-public class staffMapper {
+public interface staffMapper {
 
+	
 }
