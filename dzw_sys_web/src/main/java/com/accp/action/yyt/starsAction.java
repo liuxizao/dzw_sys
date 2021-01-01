@@ -55,10 +55,10 @@ public class starsAction {
 	 * @param sid
 	 * @return
 	 */
-	@DeleteMapping("/delete")
-	public int deleteStars(@RequestBody Stars s) {
+	@DeleteMapping("/delete/{sid}")
+	public int deleteStars(@PathVariable Integer sid) {
 		//System.out.println(s.getSid());
-		return service.deleteStars(s.getSid());
+		return service.deleteStars(sid);
 	}
 	
 	/**
