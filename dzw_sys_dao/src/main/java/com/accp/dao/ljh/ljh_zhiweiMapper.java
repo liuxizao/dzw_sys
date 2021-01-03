@@ -9,7 +9,7 @@ import com.accp.pojo.Zhiwei;
 /**
  * 
  * @author Liu Jia Hui
- *员工职位表
+ *员工职位表 
  */
 public interface ljh_zhiweiMapper {
 
