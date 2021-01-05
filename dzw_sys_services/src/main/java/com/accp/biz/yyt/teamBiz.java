@@ -40,11 +40,38 @@ public class teamBiz {
 	}
 	
 	/**
+	 * 修改
+	 * @param t
+	 * @return
+	 */
+	public int updateTeam(Team t) {
+		return mapper.updateByPrimaryKeySelective(t);
+	}
+	
+	/**
+	 * 删除
+	 * @param tid
+	 * @return
+	 */
+	public int deleteTeam(Integer tid) {
+		return mapper.deleteByPrimaryKey(tid);
+	}
+	
+	/**
 	 * 查询所有
 	 * @return
 	 */
 	public List<Team> selectTeam(){
 		return yytMapper.selectTeam();
+	}
+	
+	/**
+	 * 根据名称查询
+	 * @param name
+	 * @return
+	 */
+	public Team selectByName(String name) {
+		return yytMapper.selectByName(name);
 	}
 	
 }

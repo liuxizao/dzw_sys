@@ -7,6 +7,7 @@ package com.accp.dao.yyt;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.accp.pojo.Team;
@@ -25,5 +26,13 @@ public interface yyt_teamMapper {
 	 */
 	@Select("select * from team")
 	List<Team> selectTeam();
+	
+	/**
+	 * 根据名称查询
+	 * @param name
+	 * @return
+	 */
+	@Select("select * from team where tname=#{name}")
+	Team selectByName(@Param("name")String name);
 	
 }
