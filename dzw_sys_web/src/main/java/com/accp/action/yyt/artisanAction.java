@@ -38,6 +38,16 @@ public class artisanAction {
 	}
 	
 	/**
+	 * 查询离职技工
+	 * @param zt
+	 * @return
+	 */
+	@GetMapping("/Byzt/{zt}")
+	public List<Artisan> selectByAct(@PathVariable Integer zt){
+		return biz.selectByAct(zt);
+	}
+	
+	/**
 	 * 根据班组查询技工
 	 * @return
 	 */

@@ -39,6 +39,15 @@ public class artisanBiz {
 	}
 	
 	/**
+	 * 查询离职技工
+	 * @param zt
+	 * @return
+	 */
+	public List<Artisan> selectByAct(Integer zt){
+		return yytMapper.selectByAct(zt);
+	}
+	
+	/**
 	 * 根据班组查询技工
 	 * @param tid
 	 * @return

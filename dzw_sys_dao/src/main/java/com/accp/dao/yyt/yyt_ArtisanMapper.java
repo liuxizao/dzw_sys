@@ -46,4 +46,12 @@ public interface yyt_ArtisanMapper {
 			"      #{alzyy}, #{alzday}, NOW())")
 	int insertArtisan(Artisan record);
 	
+	/**
+	 * 查询离职技工
+	 * @param ct
+	 * @return
+	 */
+	@Select("select* from artisan where azt=#{zt}")
+	List<Artisan> selectByAct(@Param("zt") Integer zt);
+	
 }
