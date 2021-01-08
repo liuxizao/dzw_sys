@@ -1,17 +1,39 @@
 package com.accp.pojo;
 
+import java.util.List;
+
 public class Team {
     private Integer tid;
 
     private String tname;
 
     private Integer tzhuant;
+    
+    private List<Artisan> artisan;//¼¼¹¤±í
+    
+    public Team() {}
+    
+    public Team(Integer tid, String tname, Integer tzhuant, List<Artisan> artisan) {
+		super();
+		this.tid = tid;
+		this.tname = tname;
+		this.tzhuant = tzhuant;
+		this.artisan = artisan;
+	}
 
-    public Integer getTid() {
+	public Integer getTid() {
         return tid;
     }
 
-    public void setTid(Integer tid) {
+    public List<Artisan> getArtisan() {
+		return artisan;
+	}
+
+	public void setArtisan(List<Artisan> artisan) {
+		this.artisan = artisan;
+	}
+
+	public void setTid(Integer tid) {
         this.tid = tid;
     }
 

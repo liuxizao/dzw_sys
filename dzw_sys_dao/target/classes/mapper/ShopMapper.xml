@@ -31,6 +31,7 @@
     from shop
     where shopid = #{shopid,jdbcType=INTEGER}
   </select>
+
   
   <insert id="insert" parameterType="com.accp.pojo.Shop" >
     insert into shop (shopid, goodid, firmid, 
@@ -185,6 +186,4 @@
     delete from shop
     where shopid = #{shopid,jdbcType=INTEGER}
   </delete>
-  
-   
 </mapper>
