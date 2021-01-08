@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.CartypesMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Cartypes" >
+    <id column="ctid" property="ctid" jdbcType="INTEGER" />
+    <result column="ctname" property="ctname" jdbcType="VARCHAR" />
+    <result column="ctszm" property="ctszm" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ctid, ctname, ctszm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cartypes
+    where ctid = #{ctid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cartypes
+    where ctid = #{ctid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Cartypes" >
+    insert into cartypes (ctid, ctname, ctszm
+      )
+    values (#{ctid,jdbcType=INTEGER}, #{ctname,jdbcType=VARCHAR}, #{ctszm,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Cartypes" >
+    insert into cartypes
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ctid != null" >
+        ctid,
+      </if>
+      <if test="ctname != null" >
+        ctname,
+      </if>
+      <if test="ctszm != null" >
+        ctszm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ctid != null" >
+        #{ctid,jdbcType=INTEGER},
+      </if>
+      <if test="ctname != null" >
+        #{ctname,jdbcType=VARCHAR},
+      </if>
+      <if test="ctszm != null" >
+        #{ctszm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Cartypes" >
+    update cartypes
+    <set >
+      <if test="ctname != null" >
+        ctname = #{ctname,jdbcType=VARCHAR},
+      </if>
+      <if test="ctszm != null" >
+        ctszm = #{ctszm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ctid = #{ctid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Cartypes" >
+    update cartypes
+    set ctname = #{ctname,jdbcType=VARCHAR},
+      ctszm = #{ctszm,jdbcType=VARCHAR}
+    where ctid = #{ctid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.FirmMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Firm" >
+    <id column="firmid" property="firmid" jdbcType="INTEGER" />
+    <result column="firmname" property="firmname" jdbcType="VARCHAR" />
+    <result column="faddress" property="faddress" jdbcType="VARCHAR" />
+    <result column="fphone" property="fphone" jdbcType="VARCHAR" />
+    <result column="lxr" property="lxr" jdbcType="VARCHAR" />
+    <result column="lphone" property="lphone" jdbcType="VARCHAR" />
+    <result column="fsevenst" property="fsevenst" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    firmid, firmname, faddress, fphone, lxr, lphone, fsevenst
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from firm
+    where firmid = #{firmid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from firm
+    where firmid = #{firmid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Firm" >
+    insert into firm (firmid, firmname, faddress, 
+      fphone, lxr, lphone, 
+      fsevenst)
+    values (#{firmid,jdbcType=INTEGER}, #{firmname,jdbcType=VARCHAR}, #{faddress,jdbcType=VARCHAR}, 
+      #{fphone,jdbcType=VARCHAR}, #{lxr,jdbcType=VARCHAR}, #{lphone,jdbcType=VARCHAR}, 
+      #{fsevenst,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Firm" >
+    insert into firm
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="firmid != null" >
+        firmid,
+      </if>
+      <if test="firmname != null" >
+        firmname,
+      </if>
+      <if test="faddress != null" >
+        faddress,
+      </if>
+      <if test="fphone != null" >
+        fphone,
+      </if>
+      <if test="lxr != null" >
+        lxr,
+      </if>
+      <if test="lphone != null" >
+        lphone,
+      </if>
+      <if test="fsevenst != null" >
+        fsevenst,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="firmid != null" >
+        #{firmid,jdbcType=INTEGER},
+      </if>
+      <if test="firmname != null" >
+        #{firmname,jdbcType=VARCHAR},
+      </if>
+      <if test="faddress != null" >
+        #{faddress,jdbcType=VARCHAR},
+      </if>
+      <if test="fphone != null" >
+        #{fphone,jdbcType=VARCHAR},
+      </if>
+      <if test="lxr != null" >
+        #{lxr,jdbcType=VARCHAR},
+      </if>
+      <if test="lphone != null" >
+        #{lphone,jdbcType=VARCHAR},
+      </if>
+      <if test="fsevenst != null" >
+        #{fsevenst,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Firm" >
+    update firm
+    <set >
+      <if test="firmname != null" >
+        firmname = #{firmname,jdbcType=VARCHAR},
+      </if>
+      <if test="faddress != null" >
+        faddress = #{faddress,jdbcType=VARCHAR},
+      </if>
+      <if test="fphone != null" >
+        fphone = #{fphone,jdbcType=VARCHAR},
+      </if>
+      <if test="lxr != null" >
+        lxr = #{lxr,jdbcType=VARCHAR},
+      </if>
+      <if test="lphone != null" >
+        lphone = #{lphone,jdbcType=VARCHAR},
+      </if>
+      <if test="fsevenst != null" >
+        fsevenst = #{fsevenst,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where firmid = #{firmid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Firm" >
+    update firm
+    set firmname = #{firmname,jdbcType=VARCHAR},
+      faddress = #{faddress,jdbcType=VARCHAR},
+      fphone = #{fphone,jdbcType=VARCHAR},
+      lxr = #{lxr,jdbcType=VARCHAR},
+      lphone = #{lphone,jdbcType=VARCHAR},
+      fsevenst = #{fsevenst,jdbcType=VARCHAR}
+    where firmid = #{firmid,jdbcType=INTEGER}
+  </update>
+</mapper>

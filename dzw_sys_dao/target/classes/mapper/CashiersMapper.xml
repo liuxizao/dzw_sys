@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.CashiersMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Cashiers" >
+    <id column="casid" property="casid" jdbcType="VARCHAR" />
+    <result column="inid" property="inid" jdbcType="INTEGER" />
+    <result column="cassprice" property="cassprice" jdbcType="REAL" />
+    <result column="shisprice" property="shisprice" jdbcType="REAL" />
+    <result column="paymenttemp" property="paymenttemp" jdbcType="VARCHAR" />
+    <result column="casdate" property="casdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    casid, inid, cassprice, shisprice, paymenttemp, casdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cashiers
+    where casid = #{casid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from cashiers
+    where casid = #{casid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Cashiers" >
+    insert into cashiers (casid, inid, cassprice, 
+      shisprice, paymenttemp, casdate
+      )
+    values (#{casid,jdbcType=VARCHAR}, #{inid,jdbcType=INTEGER}, #{cassprice,jdbcType=REAL}, 
+      #{shisprice,jdbcType=REAL}, #{paymenttemp,jdbcType=VARCHAR}, #{casdate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Cashiers" >
+    insert into cashiers
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="casid != null" >
+        casid,
+      </if>
+      <if test="inid != null" >
+        inid,
+      </if>
+      <if test="cassprice != null" >
+        cassprice,
+      </if>
+      <if test="shisprice != null" >
+        shisprice,
+      </if>
+      <if test="paymenttemp != null" >
+        paymenttemp,
+      </if>
+      <if test="casdate != null" >
+        casdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="casid != null" >
+        #{casid,jdbcType=VARCHAR},
+      </if>
+      <if test="inid != null" >
+        #{inid,jdbcType=INTEGER},
+      </if>
+      <if test="cassprice != null" >
+        #{cassprice,jdbcType=REAL},
+      </if>
+      <if test="shisprice != null" >
+        #{shisprice,jdbcType=REAL},
+      </if>
+      <if test="paymenttemp != null" >
+        #{paymenttemp,jdbcType=VARCHAR},
+      </if>
+      <if test="casdate != null" >
+        #{casdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Cashiers" >
+    update cashiers
+    <set >
+      <if test="inid != null" >
+        inid = #{inid,jdbcType=INTEGER},
+      </if>
+      <if test="cassprice != null" >
+        cassprice = #{cassprice,jdbcType=REAL},
+      </if>
+      <if test="shisprice != null" >
+        shisprice = #{shisprice,jdbcType=REAL},
+      </if>
+      <if test="paymenttemp != null" >
+        paymenttemp = #{paymenttemp,jdbcType=VARCHAR},
+      </if>
+      <if test="casdate != null" >
+        casdate = #{casdate,jdbcType=DATE},
+      </if>
+    </set>
+    where casid = #{casid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Cashiers" >
+    update cashiers
+    set inid = #{inid,jdbcType=INTEGER},
+      cassprice = #{cassprice,jdbcType=REAL},
+      shisprice = #{shisprice,jdbcType=REAL},
+      paymenttemp = #{paymenttemp,jdbcType=VARCHAR},
+      casdate = #{casdate,jdbcType=DATE}
+    where casid = #{casid,jdbcType=VARCHAR}
+  </update>
+</mapper>

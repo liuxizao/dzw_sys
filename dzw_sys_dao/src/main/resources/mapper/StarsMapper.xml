@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.StarsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Stars" >
+    <id column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="starts" property="starts" jdbcType="VARCHAR" />
+    <result column="xmoney" property="xmoney" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sid, starts, xmoney
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from stars
+    where sid = #{sid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stars
+    where sid = #{sid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Stars" >
+    insert into stars (sid, starts, xmoney
+      )
+    values (#{sid,jdbcType=INTEGER}, #{starts,jdbcType=VARCHAR}, #{xmoney,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Stars" >
+    insert into stars
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="starts != null" >
+        starts,
+      </if>
+      <if test="xmoney != null" >
+        xmoney,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="starts != null" >
+        #{starts,jdbcType=VARCHAR},
+      </if>
+      <if test="xmoney != null" >
+        #{xmoney,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Stars" >
+    update stars
+    <set >
+      <if test="starts != null" >
+        starts = #{starts,jdbcType=VARCHAR},
+      </if>
+      <if test="xmoney != null" >
+        xmoney = #{xmoney,jdbcType=REAL},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Stars" >
+    update stars
+    set starts = #{starts,jdbcType=VARCHAR},
+      xmoney = #{xmoney,jdbcType=REAL}
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+</mapper>
