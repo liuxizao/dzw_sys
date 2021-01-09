@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.accp.dao.ShopMapper" >
+<mapper namespace="com.accp.dao.tzy.tzy_ShopMapper" >
   <resultMap id="BaseResultMap" type="com.accp.pojo.Shop" >
     <id column="shopid" property="shopid" jdbcType="INTEGER" />
     <result column="goodid" property="goodid" jdbcType="INTEGER" />
@@ -31,7 +31,6 @@
     from shop
     where shopid = #{shopid,jdbcType=INTEGER}
   </select>
-
   
   <insert id="insert" parameterType="com.accp.pojo.Shop" >
     insert into shop (shopid, goodid, firmid, 
@@ -181,9 +180,30 @@
     </set>
     where shopid = #{shopid,jdbcType=INTEGER}
   </update>
-  
+  <select id="queryshopfdj" resultType="com.accp.pojo.Shop">
+  		SELECT * FROM `shop` WHERE `goodid` = 1
+  		<if test="shopname!=null">
+  			AND `shopname` like "%${shopname}%"
+ 		</if>
+  </select>
+  <select id="queryshopby" resultType="com.accp.pojo.Shop">
+  		SELECT * FROM `shop` WHERE `goodid` = 2
+  		<if test="byname!=null">
+  			AND `shopname` like "%${byname}%"
+ 		</if>
+  </select>
+  <select id="queryshopwx" resultType="com.accp.pojo.Shop">
+  		SELECT * FROM `shop` WHERE `goodid` = 3
+  		<if test="wxname!=null">
+  			AND `shopname` like "%${wxname}%"
+ 		</if>
+  </select>
+  <insert id="addshopfdj" parameterType="com.accp.pojo.Shop">
+ 		INSERT INTO `shop`(`goodid`, `firmid`,`shopname`,`sellingprice`,`numbering`,`quantity`,`weight`)VALUE(#{sp.goodid},#{sp.firmid},#{sp.shopname},#{sp.sellingprice},#{sp.numbering},#{sp.quantity},#{sp.weight})
+  </insert>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from shop
     where shopid = #{shopid,jdbcType=INTEGER}
   </delete>
+  
 </mapper>

@@ -66,4 +66,13 @@ public class ZhiWeiBiz {
 		return mapper.deleteByPrimaryKey(sid);
 	}
 	
+	/**
+	 * 根据名称查询
+	 * @param name
+	 * @return
+	 */
+	public Zhiwei selectByName(String zname) {
+		return ljhMapper.selectByName(zname);
+	}
+	
 }

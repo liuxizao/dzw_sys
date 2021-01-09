@@ -73,4 +73,15 @@ public class ZhiWeiAction {
 		return service.insertStars(zhiwei);
 	}
 	
+	/**
+	 * 根据名称查询
+	 * @param starts
+	 * @return
+	 */
+	@GetMapping("/byName/{zname}")
+	public Zhiwei selectByName(@PathVariable String zname) {
+		//System.out.println(starts);
+		return service.selectByName(zname);
+	}
+	
 }
