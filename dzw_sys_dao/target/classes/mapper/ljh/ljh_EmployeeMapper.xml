@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ljh.ljh_EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Employee" >
+    <id column="ephone" property="ephone" jdbcType="VARCHAR" />
+    <result column="deid" property="deid" jdbcType="INTEGER" />
+    <result column="zid" property="zid" jdbcType="INTEGER" />
+    <result column="epwd" property="epwd" jdbcType="VARCHAR" />
+    <result column="esex" property="esex" jdbcType="INTEGER" />
+    <result column="ecreid" property="ecreid" jdbcType="VARCHAR" />
+    <result column="eaddress" property="eaddress" jdbcType="VARCHAR" />
+    <result column="etrytimes" property="etrytimes" jdbcType="DATE" />
+    <result column="elaimes" property="elaimes" jdbcType="DATE" />
+    <result column="ezuant" property="ezuant" jdbcType="INTEGER" />
+    <result column="eyunayin" property="eyunayin" jdbcType="VARCHAR" />
+    <result column="ename" property="ename" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="queryEmpAll" resultMap="BaseResultMap">
+  select * from employee where ename like '%${ename}%' and ezuant = #{status} 
+  <if test="zid!=null">
+  	and deid=#{zid}
+  </if>
+  </select>
+  
+</mapper>

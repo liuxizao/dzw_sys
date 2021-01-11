@@ -30,8 +30,38 @@ public class Inststion {
     private Integer ifjs;
 
     private String insevent;
+    
+    private Workcar workcar;//外派车辆表-车辆车牌
+    
+    private Team team;//班组表-班组名称
+    
+    private Clientcar car;//
 
-    public Integer getInid() {
+    public Workcar getWorkcar() {
+		return workcar;
+	}
+
+	public void setWorkcar(Workcar workcar) {
+		this.workcar = workcar;
+	}
+
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+
+	public Clientcar getCar() {
+		return car;
+	}
+
+	public void setCar(Clientcar car) {
+		this.car = car;
+	}
+
+	public Integer getInid() {
         return inid;
     }
 

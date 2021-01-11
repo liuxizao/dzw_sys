@@ -17,10 +17,10 @@
   	SELECT * FROM clientcar
   	<where>
   		<if test="phone!=null and phone!=''">
-  			and  cliphone like '%${phone}%'
+  			and cliphone like '%${phone}%'
   		</if>
-  		<if test="cno!=null and cno!=''">
-  			and  cliphone like '%${phone}%'
+  		<if test="cno!=null and cno!='' and cno!='undefined'">
+  			and cno like '%${cno}%'
   		</if>
   	</where>
   </select>
