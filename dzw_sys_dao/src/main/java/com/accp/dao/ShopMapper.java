@@ -1,5 +1,9 @@
 package com.accp.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.accp.pojo.Shop;
 
 public interface ShopMapper {
@@ -16,4 +20,5 @@ public interface ShopMapper {
     int updateByPrimaryKeyWithBLOBs(Shop record);
 
     int updateByPrimaryKey(Shop record);
+
 }

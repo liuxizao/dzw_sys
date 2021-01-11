@@ -21,7 +21,7 @@
   </sql>
   
   <select id="selectByTid" resultType="com.accp.pojo.Artisan" parameterType="com.accp.pojo.Artisan">
-  	select * from artisan where 1=1
+  	select * from artisan where azt=0
   	<if test="tid!=0">
   	 and tid=#{tid}
   	</if>
