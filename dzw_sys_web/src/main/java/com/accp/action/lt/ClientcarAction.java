@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accp.biz.lt.ClientcarBiz;
 import com.accp.pojo.Clientcar;
+import com.github.pagehelper.PageInfo;
 
 @RestController
 @RequestMapping("/api/lt/clicar")
@@ -29,9 +30,10 @@ public class ClientcarAction {
 	}
 
 	// 按车牌号查询车辆
-	@GetMapping("cnocar/{cno}")
-	public List<Clientcar> selCnoMapper(@PathVariable String cno) {
-		return this.clicar.selClientcarPhone(cno);
+	@PostMapping("cnocar/{p}/{s}/{cno}")
+	public PageInfo<Clientcar> selCnoMapper(@PathVariable Integer p, @PathVariable Integer s,
+			@PathVariable String cno) {
+		return this.clicar.selCarcno(p, s, cno);
 	}
 
 	// 新增车辆
