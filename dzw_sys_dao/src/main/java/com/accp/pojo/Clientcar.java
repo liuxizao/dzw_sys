@@ -18,8 +18,19 @@ public class Clientcar {
     private Date purdate;
 
     private Date jctdate;
+    
+    private Cartypes ctype;
+    
 
-    public String getCno() {
+    public Cartypes getCtype() {
+		return ctype;
+	}
+
+	public void setCtype(Cartypes ctype) {
+		this.ctype = ctype;
+	}
+
+	public String getCno() {
         return cno;
     }
 

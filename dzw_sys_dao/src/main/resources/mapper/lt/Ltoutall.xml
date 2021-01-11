@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.lt.LtClientcarDao" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Clientcar" >
+    <id column="cno" property="cno" jdbcType="VARCHAR" />
+    <result column="cliphone" property="cliphone" jdbcType="VARCHAR" />
+    <result column="ctid" property="ctid" jdbcType="INTEGER" />
+    <result column="driver" property="driver" jdbcType="VARCHAR" />
+    <result column="dphone" property="dphone" jdbcType="VARCHAR" />
+    <result column="ddate" property="ddate" jdbcType="DATE" />
+    <result column="purdate" property="purdate" jdbcType="DATE" />
+    <result column="jctdate" property="jctdate" jdbcType="DATE" />
+  </resultMap>
+  
+  <!-- 查询用户车辆 -->
+  <select id="selClientcarPhone" resultMap="cartype">
+  	SELECT * FROM clientcar
+  	<where>
+  		<if test="phone!=null and phone!=''">
+  			and  cliphone like '%${phone}%'
+  		</if>
+  		<if test="cno!=null and cno!=''">
+  			and  cliphone like '%${phone}%'
+  		</if>
+  	</where>
+  </select>
+  <resultMap type="com.accp.pojo.Clientcar" id="cartype">
+  	<result column="ctid" property="ctid"/>
+  	<association property="ctype" column="ctid" select="seltype"/>
+  </resultMap>
+  <select id="seltype" resultType="com.accp.pojo.Cartypes">
+  	SELECT * FROM cartypes WHERE ctid=#{ctid}
+  </select>
+  
+  
+</mapper>
