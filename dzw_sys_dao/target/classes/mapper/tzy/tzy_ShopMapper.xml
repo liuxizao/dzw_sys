@@ -198,6 +198,9 @@
   			AND `shopname` like "%${wxname}%"
  		</if>
   </select>
+  <select id="queryAA" resultType="com.accp.pojo.Shop">
+  		SELECT * FROM `shop` WHERE `goodid` &lt;&gt; 2
+  </select>
   <insert id="addshopfdj" parameterType="com.accp.pojo.Shop">
  		INSERT INTO `shop`(`goodid`, `firmid`,`shopname`,`sellingprice`,`numbering`,`quantity`,`weight`)VALUE(#{sp.goodid},#{sp.firmid},#{sp.shopname},#{sp.sellingprice},#{sp.numbering},#{sp.quantity},#{sp.weight})
   </insert>

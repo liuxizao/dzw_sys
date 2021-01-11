@@ -25,6 +25,17 @@ public class tzy_ShopBiz {
 	private tzy_ShopMapper tzysm;
 	
 	/**
+	 * 查询维修项目
+	 * @param p
+	 * @param s
+	 * @return
+	 */
+	public PageInfo<Shop> queryAA(Integer p,Integer s){
+		PageHelper.startPage(p, s);
+		return new PageInfo<Shop>(tzysm.queryAA());
+	}
+	
+	/**
 	 * 查询所有发动机
 	 * @return
 	 */

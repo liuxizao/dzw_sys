@@ -19,6 +19,15 @@ public class tzy_ShopAction {
 	private tzy_ShopBiz sb;
 	
 	/**
+	 * 查询维修项目
+	 * @return
+	 */
+	@GetMapping("queryAA/{p}/{s}")
+	public PageInfo<Shop> queryAA(@PathVariable Integer s,@PathVariable Integer p){
+		return sb.queryAA(p, s);
+	}
+	
+	/**
 	 * 查询全部发动机
 	 * @return
 	 */

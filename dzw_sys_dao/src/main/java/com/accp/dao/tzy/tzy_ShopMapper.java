@@ -25,4 +25,7 @@ public interface tzy_ShopMapper {
     
     //查询维修项目
     List<Shop> queryshopwx(@Param("wxname")String wxname);
+    
+    //查询维修项目
+    List<Shop> queryAA();
 }
