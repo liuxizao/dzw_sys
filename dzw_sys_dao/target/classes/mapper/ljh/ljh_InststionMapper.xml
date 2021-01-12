@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ljh.ljh_InststionMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Inststion" autoMapping="true">
+    <id column="inid" property="inid" jdbcType="INTEGER" />
+    <collection property="workcar" column="wid" select="selWorkcar"></collection>
+    <collection property="team" column="tid" select="selTeam"></collection>
+    <collection property="car" column="cno" select="selClientcar"></collection>
+    <collection property="wxxq" column="inid" select="selWxxq"></collection>
+  </resultMap>
+  
+  <resultMap id="Workcar" type="com.accp.pojo.Workcar" autoMapping="true">
+    <id column="wid" property="wid" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="Team" type="com.accp.pojo.Team" autoMapping="true">
+    <id column="tid" property="tid" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="Clientcar" type="com.accp.pojo.Clientcar" autoMapping="true">
+    <id column="cno" property="cno" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="Wxxq" type="com.accp.pojo.Wxxq" >
+    <id column="xqid" property="xqid" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="queryAll" resultMap="BaseResultMap">
+  	SELECT * FROM inststion i
+	WHERE 1=1
+	<if test="cno!=''">AND i.cno = #{cno} </if>
+	<if test="izt!=0">AND i.izt =#{izt}</if>
+	<if test="jdateStart!='' and jdateEnd!=''">
+	AND i.`jdate`>=#{jdateStart} AND i.`jdate` &lt;=#{jdateEnd}
+	</if>
+	<if test="jdateStart=='' and jdateEnd!=''">AND i.`jdate` &lt;=#{jdateEnd}	</if>
+	<if test="jdateStart!='' and jdateEnd==''">AND i.`jdate`>=#{jdateStart}</if>
+  </select>
+  
+  <select id="selWorkcar" resultMap="Workcar">
+  	select * from workcar
+  	where wid=#{0}
+  </select>
+  
+  <select id="selTeam" resultMap="Team">
+  	select * from Team
+  	where tid=#{0}
+  </select>
+  
+  <select id="selClientcar" resultMap="Clientcar">
+  	select * from Clientcar
+  	where cno=#{0}
+  </select>
+  
+  <select id="selWxxq" resultMap="Wxxq">
+  	select * from wxxq
+  	where inid=#{0}
+  </select>
+  
+</mapper>
