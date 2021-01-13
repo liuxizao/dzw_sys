@@ -35,10 +35,10 @@ public class InststionAction {
 	@PostMapping("/all/{size}/{currentPage}")
 	public PageInfo<Inststion> findEmpPageInfoAll(@RequestBody Map<String, Object> wei,
 			@PathVariable Integer size,@PathVariable Integer currentPage){
-		System.out.println("cno:"+wei.get("cno").toString()+"izt:"+Integer.parseInt(wei.get("izt").toString())
-				+"jdate:"+wei.get("jdate").toString()+"jdateEnd:"+wei.get("jdateEnd").toString());
+//		System.out.println("cno:"+wei.get("cno").toString()+"izt:"+Integer.parseInt(wei.get("izt").toString())
+//				+"jdate:"+wei.get("jdate").toString()+"jdateEnd:"+wei.get("jdateEnd").toString());
 		
 		return Inbiz.findAllByInststion(wei.get("cno").toString(), Integer.parseInt(wei.get("izt").toString()) ,
-				wei.get("jdate").toString(), wei.get("jdateEnd").toString(), size, currentPage);
+				(String)wei.get("jdate"), (String) wei.get("jdateEnd"), size, currentPage);
 	}
 }

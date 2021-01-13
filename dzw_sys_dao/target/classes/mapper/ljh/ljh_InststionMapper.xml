@@ -26,12 +26,12 @@
   	SELECT * FROM inststion i
 	WHERE 1=1
 	<if test="cno!=''">AND i.cno = #{cno} </if>
-	<if test="izt!=0">AND i.izt =#{izt}</if>
-	<if test="jdateStart!='' and jdateEnd!=''">
+	<if test="izt!=4">AND i.izt =#{izt}</if>
+	<if test="jdateStart!=null and jdateEnd!=null">
 	AND i.`jdate`>=#{jdateStart} AND i.`jdate` &lt;=#{jdateEnd}
 	</if>
-	<if test="jdateStart=='' and jdateEnd!=''">AND i.`jdate` &lt;=#{jdateEnd}	</if>
-	<if test="jdateStart!='' and jdateEnd==''">AND i.`jdate`>=#{jdateStart}</if>
+	<if test="jdateStart==null and jdateEnd!=null">AND i.`jdate` &lt;=#{jdateEnd}	</if>
+	<if test="jdateStart!=null and jdateEnd==null">AND i.`jdate`>=#{jdateStart}</if>
   </select>
   
   <select id="selWorkcar" resultMap="Workcar">
