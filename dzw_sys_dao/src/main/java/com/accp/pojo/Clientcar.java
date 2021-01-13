@@ -2,6 +2,10 @@ package com.accp.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class Clientcar {
     private String cno;
 
@@ -13,10 +17,13 @@ public class Clientcar {
 
     private String dphone;
 
+    @DateTimeFormat(pattern="yyyy年MM月dd日")
     private Date ddate;
 
+    @DateTimeFormat(pattern="yyyy年MM月dd日")
     private Date purdate;
 
+    @DateTimeFormat(pattern="yyyy年MM月dd日")
     private Date jctdate;
     
     private Cartypes ctype;

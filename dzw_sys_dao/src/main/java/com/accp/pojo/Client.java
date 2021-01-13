@@ -2,6 +2,8 @@ package com.accp.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Client {
     private String cliphone;
 
@@ -11,12 +13,14 @@ public class Client {
 
     private String cliaddress;
 
+    @DateTimeFormat(pattern="yyyy年MM月dd日")
     private Date clidate;
 
     private Integer mid;
 
     private Float baifb;
 
+    @DateTimeFormat(pattern="yyyy年MM月dd日")
     private Date rhdate;
 
     private Float yue;

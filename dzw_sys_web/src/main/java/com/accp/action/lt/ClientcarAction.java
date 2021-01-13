@@ -48,4 +48,10 @@ public class ClientcarAction {
 	public int deleteByPrimaryKey(@PathVariable String cno) {
 		return this.clicar.deleteByPrimaryKey(cno);
 	}
+	
+	//修改车辆信息
+	@PostMapping("updateCar")
+	public int updateByPrimaryKeySelective(@RequestBody Clientcar record) {
+		return this.clicar.updateByPrimaryKeySelective(record);
+	}
 }
