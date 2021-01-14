@@ -29,6 +29,16 @@ public class starsAction {
 	private starsBiz service;
 	
 	/**
+	 * 根据id查询
+	 * @param sid
+	 * @return
+	 */
+	@GetMapping("/ByID/{sid}")
+	public Stars sletectById(@PathVariable Integer sid) {
+		return service.sletectById(sid);
+	}
+	
+	/**
 	 * 查询所有
 	 * @return
 	 */

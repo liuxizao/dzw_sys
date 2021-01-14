@@ -25,6 +25,15 @@ public class teamAction {
 	private teamBiz biz;
 	
 	/**
+	 * 根据状态查询
+	 * @return
+	 */
+	@GetMapping("/ByZt")
+	public List<Team> selectByZt(){
+		return biz.selectByZt();
+	}
+	
+	/**
 	 * 查询所有   连表查询技工
 	 * @return
 	 */

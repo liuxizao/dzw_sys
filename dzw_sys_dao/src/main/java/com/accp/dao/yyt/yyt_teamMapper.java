@@ -35,4 +35,12 @@ public interface yyt_teamMapper {
 	@Select("select * from team where tname=#{name}")
 	Team selectByName(@Param("name")String name);
 	
+	/**
+	 * 根据状态查询当前班组
+	 * @return
+	 */
+	@Select("SELECT * FROM team AS t WHERE t.tzhuant=0 AND "
+			+ "(SELECT COUNT(*) FROM artisan WHERE tid=t.`tid`)<>0")
+	List<Team> selectByZt();
+	
 }

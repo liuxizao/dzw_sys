@@ -72,4 +72,13 @@ public class starsBiz {
 		return mapper.deleteByPrimaryKey(sid);
 	}
 	
+	/**
+	 * 根据id查询
+	 * @param sid
+	 * @return
+	 */
+	public Stars sletectById(Integer sid) {
+		return mapper.selectByPrimaryKey(sid);
+	}
+	
 }

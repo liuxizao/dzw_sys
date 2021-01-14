@@ -23,6 +23,14 @@ public class teamBiz {
 	private TeamMapper mapper;//公共Mapper
 	
 	/**
+	 * 根据状态查询当前班组
+	 * @return
+	 */
+	public List<Team> selectByZt(){
+		return yytMapper.selectByZt();
+	}
+	
+	/**
 	 * 查询所有   连表查询技工表
 	 * @return
 	 */

@@ -8,22 +8,11 @@ public class Team {
     private String tname;
 
     private Integer tzhuant;
-    
-    private List<Artisan> artisan;//¼¼¹¤±í
-    
-    public Team() {}
-    
-    public Team(Integer tid, String tname, Integer tzhuant, List<Artisan> artisan) {
-		super();
-		this.tid = tid;
-		this.tname = tname;
-		this.tzhuant = tzhuant;
-		this.artisan = artisan;
-	}
 
-	public Integer getTid() {
-        return tid;
-    }
+    private Integer sid;
+    
+    private List<Artisan> artisan;
+    
 
     public List<Artisan> getArtisan() {
 		return artisan;
@@ -33,7 +22,11 @@ public class Team {
 		this.artisan = artisan;
 	}
 
-	public void setTid(Integer tid) {
+	public Integer getTid() {
+        return tid;
+    }
+
+    public void setTid(Integer tid) {
         this.tid = tid;
     }
 
@@ -51,5 +44,13 @@ public class Team {
 
     public void setTzhuant(Integer tzhuant) {
         this.tzhuant = tzhuant;
+    }
+
+    public Integer getSid() {
+        return sid;
+    }
+
+    public void setSid(Integer sid) {
+        this.sid = sid;
     }
 }
