@@ -16,5 +16,5 @@ public interface yyt_fangongMapper {
 	 * @return
 	 */
 	@Select("select count(*) from fangong where fzt<>0 and inid=#{inid}")
-	int selectByInid(@Param("inid") Integer inid);
+	int selectByInid(@Param("inid") String inid);
 }

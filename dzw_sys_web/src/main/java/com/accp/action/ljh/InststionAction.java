@@ -1,5 +1,8 @@
 package com.accp.action.ljh;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.accp.biz.ljh.InststionBiz;
+import com.accp.biz.ljh.wxxqBiz;
+import com.accp.biz.yyt.teamBiz;
+import com.accp.biz.yyt.workcarBiz;
 import com.accp.pojo.Employee;
 import com.accp.pojo.Inststion;
+import com.accp.pojo.Team;
+import com.accp.pojo.Workcar;
+import com.accp.pojo.Wxxq;
 import com.github.pagehelper.PageInfo;
 
 /**
@@ -27,6 +36,10 @@ public class InststionAction {
 
 	@Autowired
 	InststionBiz Inbiz;//维修业务	
+	@Autowired
+	teamBiz Tbiz;//班组
+	@Autowired
+	private workcarBiz Wbiz;//救援车辆
 	
 	/**
 	 * 查询所有
@@ -41,4 +54,43 @@ public class InststionAction {
 		return Inbiz.findAllByInststion(wei.get("cno").toString(), Integer.parseInt(wei.get("izt").toString()) ,
 				(String)wei.get("jdate"), (String) wei.get("jdateEnd"), size, currentPage);
 	}
+	
+	/**
+	 * 查询id
+	 * @return
+	 */
+	@GetMapping("/ID")
+	public String selectID() {
+		PageInfo<Inststion> pageifo= Inbiz.findAllByInststion("",4,null,null,100, 1);
+			int c= pageifo.getList().size()+1;//总长度
+			Date date = new Date();
+			String dateStr = new SimpleDateFormat("yyyyMMdd").format(date);
+			System.out.println(dateStr+"---"+c);
+			if(c>=10) {
+				return dateStr+"0"+c;
+			}else if(c>100) {
+				return dateStr+c;
+			}else {
+				return dateStr+"00"+c;
+			}		
+	}
+	
+	/**
+	 * 新增
+	 * @param i
+	 * @return
+	 */
+	@PostMapping("/insert")
+	public int insertInststion(@RequestBody Inststion i) {
+		Team t =new Team();
+		t.setTzhuant(1);
+		t.setTid(i.getTid());
+		Tbiz.updateTeam(t);
+		Workcar w =new Workcar();
+		w.setCzt(1);
+		w.setWid(i.getWid());
+		Wbiz.updateWorkcar(w);
+		return Inbiz.insertInststion(i);
+	}
+	
 }
