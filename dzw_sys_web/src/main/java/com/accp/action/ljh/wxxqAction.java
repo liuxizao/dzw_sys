@@ -37,7 +37,6 @@ public class wxxqAction {
 			i+=Wbiz.insertWxxq(wx);
 		}
 		return i;
-		
-		
 	}
+	
 }

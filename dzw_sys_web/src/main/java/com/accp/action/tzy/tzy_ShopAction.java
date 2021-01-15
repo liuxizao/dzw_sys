@@ -6,10 +6,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.accp.biz.tzy.tzy_ShopBiz;
 import com.accp.pojo.Shop;
+import com.accp.pojo.Wxxq;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 
 @RestController
@@ -67,6 +72,24 @@ public class tzy_ShopAction {
 	@PostMapping("modifyshop")
 	public int modifyshopfdj(@RequestBody Shop record){
 		return sb.updshopfdj(record);
+	}
+	
+	/**
+	 * 修改
+	 * @param s
+	 * @return
+	 */
+	@PostMapping("/update")
+	public int updateShopfdj(@RequestBody String s) {
+		int i=0;
+		JSONArray array=JSONArray.parseArray(s);
+		for (int j = 0; j < array.size(); j++) {
+			JSONObject object=array.getJSONObject(j);
+			//System.out.println(object);
+			Shop sh=(Shop)JSON.toJavaObject(object, Shop.class);
+			i+=sb.updshopfdj(sh);
+		}
+		return i;
 	}
 	
 	/**
