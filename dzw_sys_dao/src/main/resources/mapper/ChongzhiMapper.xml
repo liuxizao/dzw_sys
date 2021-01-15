@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ChongzhiMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Chongzhi" >
+    <id column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="cliphone" property="cliphone" jdbcType="VARCHAR" />
+    <result column="cztype" property="cztype" jdbcType="VARCHAR" />
+    <result column="cmoney" property="cmoney" jdbcType="REAL" />
+    <result column="cbh" property="cbh" jdbcType="VARCHAR" />
+    <result column="czdate" property="czdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cid, cliphone, cztype, cmoney, cbh, czdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from chongzhi
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from chongzhi
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Chongzhi" >
+    insert into chongzhi (cid, cliphone, cztype, 
+      cmoney, cbh, czdate)
+    values (#{cid,jdbcType=INTEGER}, #{cliphone,jdbcType=VARCHAR}, #{cztype,jdbcType=VARCHAR}, 
+      #{cmoney,jdbcType=REAL}, #{cbh,jdbcType=VARCHAR}, #{czdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Chongzhi" >
+    insert into chongzhi
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="cliphone != null" >
+        cliphone,
+      </if>
+      <if test="cztype != null" >
+        cztype,
+      </if>
+      <if test="cmoney != null" >
+        cmoney,
+      </if>
+      <if test="cbh != null" >
+        cbh,
+      </if>
+      <if test="czdate != null" >
+        czdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="cliphone != null" >
+        #{cliphone,jdbcType=VARCHAR},
+      </if>
+      <if test="cztype != null" >
+        #{cztype,jdbcType=VARCHAR},
+      </if>
+      <if test="cmoney != null" >
+        #{cmoney,jdbcType=REAL},
+      </if>
+      <if test="cbh != null" >
+        #{cbh,jdbcType=VARCHAR},
+      </if>
+      <if test="czdate != null" >
+        #{czdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Chongzhi" >
+    update chongzhi
+    <set >
+      <if test="cliphone != null" >
+        cliphone = #{cliphone,jdbcType=VARCHAR},
+      </if>
+      <if test="cztype != null" >
+        cztype = #{cztype,jdbcType=VARCHAR},
+      </if>
+      <if test="cmoney != null" >
+        cmoney = #{cmoney,jdbcType=REAL},
+      </if>
+      <if test="cbh != null" >
+        cbh = #{cbh,jdbcType=VARCHAR},
+      </if>
+      <if test="czdate != null" >
+        czdate = #{czdate,jdbcType=DATE},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Chongzhi" >
+    update chongzhi
+    set cliphone = #{cliphone,jdbcType=VARCHAR},
+      cztype = #{cztype,jdbcType=VARCHAR},
+      cmoney = #{cmoney,jdbcType=REAL},
+      cbh = #{cbh,jdbcType=VARCHAR},
+      czdate = #{czdate,jdbcType=DATE}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

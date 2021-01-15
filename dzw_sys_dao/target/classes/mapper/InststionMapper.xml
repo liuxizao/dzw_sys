@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.InststionMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Inststion" >
+    <id column="inid" property="inid" jdbcType="INTEGER" />
+    <result column="wid" property="wid" jdbcType="INTEGER" />
+    <result column="aphone" property="aphone" jdbcType="VARCHAR" />
+    <result column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="cno" property="cno" jdbcType="VARCHAR" />
+    <result column="izt" property="izt" jdbcType="INTEGER" />
+    <result column="jdate" property="jdate" jdbcType="DATE" />
+    <result column="jcday" property="jcday" jdbcType="DATE" />
+    <result column="yjday" property="yjday" jdbcType="DATE" />
+    <result column="wgday" property="wgday" jdbcType="DATE" />
+    <result column="iszn" property="iszn" jdbcType="INTEGER" />
+    <result column="lc" property="lc" jdbcType="INTEGER" />
+    <result column="ifjs" property="ifjs" jdbcType="INTEGER" />
+    <result column="insevent" property="insevent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    inid, wid, aphone, tid, cno, izt, jdate, jcday, yjday, wgday, iszn, lc, ifjs, insevent
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from inststion
+    where inid = #{inid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from inststion
+    where inid = #{inid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Inststion" >
+    insert into inststion (inid, wid, aphone, 
+      tid, cno, izt, jdate, 
+      jcday, yjday, wgday, iszn, 
+      lc, ifjs, insevent)
+    values (#{inid,jdbcType=INTEGER}, #{wid,jdbcType=INTEGER}, #{aphone,jdbcType=VARCHAR}, 
+      #{tid,jdbcType=INTEGER}, #{cno,jdbcType=VARCHAR}, #{izt,jdbcType=INTEGER}, #{jdate,jdbcType=DATE}, 
+      #{jcday,jdbcType=DATE}, #{yjday,jdbcType=DATE}, #{wgday,jdbcType=DATE}, #{iszn,jdbcType=INTEGER}, 
+      #{lc,jdbcType=INTEGER}, #{ifjs,jdbcType=INTEGER}, #{insevent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Inststion" >
+    insert into inststion
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="inid != null" >
+        inid,
+      </if>
+      <if test="wid != null" >
+        wid,
+      </if>
+      <if test="aphone != null" >
+        aphone,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="cno != null" >
+        cno,
+      </if>
+      <if test="izt != null" >
+        izt,
+      </if>
+      <if test="jdate != null" >
+        jdate,
+      </if>
+      <if test="jcday != null" >
+        jcday,
+      </if>
+      <if test="yjday != null" >
+        yjday,
+      </if>
+      <if test="wgday != null" >
+        wgday,
+      </if>
+      <if test="iszn != null" >
+        iszn,
+      </if>
+      <if test="lc != null" >
+        lc,
+      </if>
+      <if test="ifjs != null" >
+        ifjs,
+      </if>
+      <if test="insevent != null" >
+        insevent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="inid != null" >
+        #{inid,jdbcType=INTEGER},
+      </if>
+      <if test="wid != null" >
+        #{wid,jdbcType=INTEGER},
+      </if>
+      <if test="aphone != null" >
+        #{aphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="cno != null" >
+        #{cno,jdbcType=VARCHAR},
+      </if>
+      <if test="izt != null" >
+        #{izt,jdbcType=INTEGER},
+      </if>
+      <if test="jdate != null" >
+        #{jdate,jdbcType=DATE},
+      </if>
+      <if test="jcday != null" >
+        #{jcday,jdbcType=DATE},
+      </if>
+      <if test="yjday != null" >
+        #{yjday,jdbcType=DATE},
+      </if>
+      <if test="wgday != null" >
+        #{wgday,jdbcType=DATE},
+      </if>
+      <if test="iszn != null" >
+        #{iszn,jdbcType=INTEGER},
+      </if>
+      <if test="lc != null" >
+        #{lc,jdbcType=INTEGER},
+      </if>
+      <if test="ifjs != null" >
+        #{ifjs,jdbcType=INTEGER},
+      </if>
+      <if test="insevent != null" >
+        #{insevent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Inststion" >
+    update inststion
+    <set >
+      <if test="wid != null" >
+        wid = #{wid,jdbcType=INTEGER},
+      </if>
+      <if test="aphone != null" >
+        aphone = #{aphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="cno != null" >
+        cno = #{cno,jdbcType=VARCHAR},
+      </if>
+      <if test="izt != null" >
+        izt = #{izt,jdbcType=INTEGER},
+      </if>
+      <if test="jdate != null" >
+        jdate = #{jdate,jdbcType=DATE},
+      </if>
+      <if test="jcday != null" >
+        jcday = #{jcday,jdbcType=DATE},
+      </if>
+      <if test="yjday != null" >
+        yjday = #{yjday,jdbcType=DATE},
+      </if>
+      <if test="wgday != null" >
+        wgday = #{wgday,jdbcType=DATE},
+      </if>
+      <if test="iszn != null" >
+        iszn = #{iszn,jdbcType=INTEGER},
+      </if>
+      <if test="lc != null" >
+        lc = #{lc,jdbcType=INTEGER},
+      </if>
+      <if test="ifjs != null" >
+        ifjs = #{ifjs,jdbcType=INTEGER},
+      </if>
+      <if test="insevent != null" >
+        insevent = #{insevent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where inid = #{inid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Inststion" >
+    update inststion
+    set wid = #{wid,jdbcType=INTEGER},
+      aphone = #{aphone,jdbcType=VARCHAR},
+      tid = #{tid,jdbcType=INTEGER},
+      cno = #{cno,jdbcType=VARCHAR},
+      izt = #{izt,jdbcType=INTEGER},
+      jdate = #{jdate,jdbcType=DATE},
+      jcday = #{jcday,jdbcType=DATE},
+      yjday = #{yjday,jdbcType=DATE},
+      wgday = #{wgday,jdbcType=DATE},
+      iszn = #{iszn,jdbcType=INTEGER},
+      lc = #{lc,jdbcType=INTEGER},
+      ifjs = #{ifjs,jdbcType=INTEGER},
+      insevent = #{insevent,jdbcType=VARCHAR}
+    where inid = #{inid,jdbcType=INTEGER}
+  </update>
+</mapper>

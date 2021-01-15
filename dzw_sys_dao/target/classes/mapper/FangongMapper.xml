@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.FangongMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Fangong" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="inid" property="inid" jdbcType="INTEGER" />
+    <result column="koufei" property="koufei" jdbcType="REAL" />
+    <result column="fyuany" property="fyuany" jdbcType="VARCHAR" />
+    <result column="fzt" property="fzt" jdbcType="INTEGER" />
+    <result column="wgyy" property="wgyy" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fid, inid, koufei, fyuany, fzt, wgyy
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from fangong
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fangong
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Fangong" >
+    insert into fangong (fid, inid, koufei, 
+      fyuany, fzt, wgyy)
+    values (#{fid,jdbcType=INTEGER}, #{inid,jdbcType=INTEGER}, #{koufei,jdbcType=REAL}, 
+      #{fyuany,jdbcType=VARCHAR}, #{fzt,jdbcType=INTEGER}, #{wgyy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Fangong" >
+    insert into fangong
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="inid != null" >
+        inid,
+      </if>
+      <if test="koufei != null" >
+        koufei,
+      </if>
+      <if test="fyuany != null" >
+        fyuany,
+      </if>
+      <if test="fzt != null" >
+        fzt,
+      </if>
+      <if test="wgyy != null" >
+        wgyy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="inid != null" >
+        #{inid,jdbcType=INTEGER},
+      </if>
+      <if test="koufei != null" >
+        #{koufei,jdbcType=REAL},
+      </if>
+      <if test="fyuany != null" >
+        #{fyuany,jdbcType=VARCHAR},
+      </if>
+      <if test="fzt != null" >
+        #{fzt,jdbcType=INTEGER},
+      </if>
+      <if test="wgyy != null" >
+        #{wgyy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Fangong" >
+    update fangong
+    <set >
+      <if test="inid != null" >
+        inid = #{inid,jdbcType=INTEGER},
+      </if>
+      <if test="koufei != null" >
+        koufei = #{koufei,jdbcType=REAL},
+      </if>
+      <if test="fyuany != null" >
+        fyuany = #{fyuany,jdbcType=VARCHAR},
+      </if>
+      <if test="fzt != null" >
+        fzt = #{fzt,jdbcType=INTEGER},
+      </if>
+      <if test="wgyy != null" >
+        wgyy = #{wgyy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Fangong" >
+    update fangong
+    set inid = #{inid,jdbcType=INTEGER},
+      koufei = #{koufei,jdbcType=REAL},
+      fyuany = #{fyuany,jdbcType=VARCHAR},
+      fzt = #{fzt,jdbcType=INTEGER},
+      wgyy = #{wgyy,jdbcType=VARCHAR}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ClientcarMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Clientcar" >
+    <id column="cno" property="cno" jdbcType="VARCHAR" />
+    <result column="cliphone" property="cliphone" jdbcType="VARCHAR" />
+    <result column="ctid" property="ctid" jdbcType="INTEGER" />
+    <result column="driver" property="driver" jdbcType="VARCHAR" />
+    <result column="dphone" property="dphone" jdbcType="VARCHAR" />
+    <result column="ddate" property="ddate" jdbcType="DATE" />
+    <result column="purdate" property="purdate" jdbcType="DATE" />
+    <result column="jctdate" property="jctdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cno, cliphone, ctid, driver, dphone, ddate, purdate, jctdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from clientcar
+    where cno = #{cno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from clientcar
+    where cno = #{cno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pojo.Clientcar" >
+    insert into clientcar (cno, cliphone, ctid, 
+      driver, dphone, ddate, 
+      purdate, jctdate)
+    values (#{cno,jdbcType=VARCHAR}, #{cliphone,jdbcType=VARCHAR}, #{ctid,jdbcType=INTEGER}, 
+      #{driver,jdbcType=VARCHAR}, #{dphone,jdbcType=VARCHAR}, #{ddate,jdbcType=DATE}, 
+      #{purdate,jdbcType=DATE}, #{jctdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pojo.Clientcar" >
+    insert into clientcar
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cno != null" >
+        cno,
+      </if>
+      <if test="cliphone != null" >
+        cliphone,
+      </if>
+      <if test="ctid != null" >
+        ctid,
+      </if>
+      <if test="driver != null" >
+        driver,
+      </if>
+      <if test="dphone != null" >
+        dphone,
+      </if>
+      <if test="ddate != null" >
+        ddate,
+      </if>
+      <if test="purdate != null" >
+        purdate,
+      </if>
+      <if test="jctdate != null" >
+        jctdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cno != null" >
+        #{cno,jdbcType=VARCHAR},
+      </if>
+      <if test="cliphone != null" >
+        #{cliphone,jdbcType=VARCHAR},
+      </if>
+      <if test="ctid != null" >
+        #{ctid,jdbcType=INTEGER},
+      </if>
+      <if test="driver != null" >
+        #{driver,jdbcType=VARCHAR},
+      </if>
+      <if test="dphone != null" >
+        #{dphone,jdbcType=VARCHAR},
+      </if>
+      <if test="ddate != null" >
+        #{ddate,jdbcType=DATE},
+      </if>
+      <if test="purdate != null" >
+        #{purdate,jdbcType=DATE},
+      </if>
+      <if test="jctdate != null" >
+        #{jctdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Clientcar" >
+    update clientcar
+    <set >
+      <if test="cliphone != null" >
+        cliphone = #{cliphone,jdbcType=VARCHAR},
+      </if>
+      <if test="ctid != null" >
+        ctid = #{ctid,jdbcType=INTEGER},
+      </if>
+      <if test="driver != null" >
+        driver = #{driver,jdbcType=VARCHAR},
+      </if>
+      <if test="dphone != null" >
+        dphone = #{dphone,jdbcType=VARCHAR},
+      </if>
+      <if test="ddate != null" >
+        ddate = #{ddate,jdbcType=DATE},
+      </if>
+      <if test="purdate != null" >
+        purdate = #{purdate,jdbcType=DATE},
+      </if>
+      <if test="jctdate != null" >
+        jctdate = #{jctdate,jdbcType=DATE},
+      </if>
+    </set>
+    where cno = #{cno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Clientcar" >
+    update clientcar
+    set cliphone = #{cliphone,jdbcType=VARCHAR},
+      ctid = #{ctid,jdbcType=INTEGER},
+      driver = #{driver,jdbcType=VARCHAR},
+      dphone = #{dphone,jdbcType=VARCHAR},
+      ddate = #{ddate,jdbcType=DATE},
+      purdate = #{purdate,jdbcType=DATE},
+      jctdate = #{jctdate,jdbcType=DATE}
+    where cno = #{cno,jdbcType=VARCHAR}
+  </update>
+</mapper>
