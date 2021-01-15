@@ -20,4 +20,13 @@ public class wxxqBiz {
 	public Integer insertWxxq(Wxxq w) {
 		return mapper.insertSelective(w);
 	}
+	
+	/**
+	 * 修改
+	 * @param w
+	 * @return
+	 */
+	public Integer updateWxxq(Wxxq w) {
+		return mapper.updateByPrimaryKeySelective(w);
+	}
 }
