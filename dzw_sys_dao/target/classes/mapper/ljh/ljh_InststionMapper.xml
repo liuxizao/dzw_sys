@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.accp.dao.ljh.ljh_InststionMapper" >
   <resultMap id="BaseResultMap" type="com.accp.pojo.Inststion" autoMapping="true">
-    <id column="inid" property="inid" jdbcType="INTEGER" />
+    <id column="inid" property="inid" jdbcType="VARCHAR" />
     <collection property="workcar" column="wid" select="selWorkcar"></collection>
     <collection property="team" column="tid" select="selTeam"></collection>
     <collection property="car" column="cno" select="selClientcar"></collection>

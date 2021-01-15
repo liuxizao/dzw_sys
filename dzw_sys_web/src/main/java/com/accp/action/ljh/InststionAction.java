@@ -10,6 +10,7 @@ import org.springframework.test.context.BootstrapWith;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,6 +54,28 @@ public class InststionAction {
 		
 		return Inbiz.findAllByInststion(wei.get("cno").toString(), Integer.parseInt(wei.get("izt").toString()) ,
 				(String)wei.get("jdate"), (String) wei.get("jdateEnd"), size, currentPage);
+	}
+	
+	/**
+	 * 修改
+	 * @param i 
+	 * @return
+	 */
+	@PutMapping("/update")
+	public int modifiyInststion(@RequestBody Inststion i) {
+		i.setJdate(new Date());
+		return Inbiz.updateInststion(i);
+	}
+	
+	/**
+	 * 修改
+	 * @param i 
+	 * @return
+	 */
+	@PutMapping("/updatejun")
+	public int modifiyInststions(@RequestBody Inststion i) {
+		i.setWgday(new Date());
+		return Inbiz.updateInststion(i);
 	}
 	
 	/**
