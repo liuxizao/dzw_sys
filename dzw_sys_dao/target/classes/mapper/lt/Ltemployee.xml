@@ -18,7 +18,7 @@
   
   <!-- 登陆且查询大节点 -->
   <select id="selLogin" resultMap="selAll">
-  	SELECT * FROM employee where ephone=#{phone} and epwd=#{pwd}
+  	SELECT * FROM employee where ephone=#{phone} and epwd=#{pwd} and ezuant=0
   </select>
   <resultMap type="com.accp.pojo.Employee" id="selAll">
   	<result column="zid" property="zid"/>
