@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Inststion {
-    private Integer inid;
+    private String inid;
 
     private Integer wid;
 
@@ -72,11 +72,11 @@ public class Inststion {
 		this.car = car;
 	}
 
-	public Integer getInid() {
+	public String getInid() {
         return inid;
     }
 
-    public void setInid(Integer inid) {
+    public void setInid(String inid) {
         this.inid = inid;
     }
 

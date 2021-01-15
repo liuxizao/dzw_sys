@@ -17,13 +17,13 @@ public class Clientcar {
 
     private String dphone;
 
-    @DateTimeFormat(pattern="yyyy年MM月dd日")
+    @JSONField(format = "yyyy-MM-dd")
     private Date ddate;
 
-    @DateTimeFormat(pattern="yyyy年MM月dd日")
+    @JSONField(format = "yyyy-MM-dd")
     private Date purdate;
 
-    @DateTimeFormat(pattern="yyyy年MM月dd日")
+    @JSONField(format = "yyyy-MM-dd")
     private Date jctdate;
     
     private Cartypes ctype;

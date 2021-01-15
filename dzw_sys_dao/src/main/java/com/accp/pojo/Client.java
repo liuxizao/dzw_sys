@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class Client {
     private String cliphone;
 
@@ -13,14 +15,14 @@ public class Client {
 
     private String cliaddress;
 
-    @DateTimeFormat(pattern="yyyy年MM月dd日")
+    @JSONField(format = "yyyy-MM-dd")
     private Date clidate;
 
     private Integer mid;
 
     private Float baifb;
 
-    @DateTimeFormat(pattern="yyyy年MM月dd日")
+    @JSONField(format = "yyyy-MM-dd")
     private Date rhdate;
 
     private Float yue;

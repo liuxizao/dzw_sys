@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.lt.LoginDao" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Employee" >
+    <id column="ephone" property="ephone" jdbcType="VARCHAR" />
+    <result column="deid" property="deid" jdbcType="INTEGER" />
+    <result column="zid" property="zid" jdbcType="INTEGER" />
+    <result column="epwd" property="epwd" jdbcType="VARCHAR" />
+    <result column="esex" property="esex" jdbcType="INTEGER" />
+    <result column="ecreid" property="ecreid" jdbcType="VARCHAR" />
+    <result column="eaddress" property="eaddress" jdbcType="VARCHAR" />
+    <result column="etrytimes" property="etrytimes" jdbcType="DATE" />
+    <result column="elaimes" property="elaimes" jdbcType="DATE" />
+    <result column="ezuant" property="ezuant" jdbcType="INTEGER" />
+    <result column="eyunayin" property="eyunayin" jdbcType="VARCHAR" />
+    <result column="ename" property="ename" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <!-- 登陆且查询大节点 -->
+  <select id="selLogin" resultMap="selAll">
+  	SELECT * FROM employee where ephone=#{phone} and epwd=#{pwd}
+  </select>
+  <resultMap type="com.accp.pojo.Employee" id="selAll">
+  	<result column="zid" property="zid"/>
+  	<association property="zwei" column="zid" select="selzhiwei"/>
+  	<collection property="tblperm" column="zid" select="seltblperm"/>
+  </resultMap>
+  <select id="selzhiwei" resultType="com.accp.pojo.Zhiwei">
+  	select * from zhiwei where zid=#{zid}
+  </select>
+  <select id="seltblperm" resultMap="seltblfunction">
+  	SELECT * FROM tbl_perm WHERE zid=#{zid} AND fid&gt;=1 AND fid&lt;=6
+  </select>
+  <resultMap type="com.accp.pojo.Tblperm" id="seltblfunction">
+  	<result column="fid" property="fid"/>
+  	<association property="tblfunction" column="fid" select="selfunctiom"/>
+  </resultMap>
+  <select id="selfunctiom" resultType="com.accp.pojo.Tblfunction">
+  	SELECT * FROM tbl_function WHERE fid=#{fid} and fpid=0
+  </select>
+</mapper>
