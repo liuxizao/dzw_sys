@@ -79,6 +79,16 @@ public class InststionAction {
 	}
 	
 	/**
+	 * 修改返工状态
+	 * @param i 
+	 * @return
+	 */
+	@PutMapping("/updatefan")
+	public int modifiyInststionfan(@RequestBody Inststion i) {
+		return Inbiz.updateInststion(i);
+	}
+	
+	/**
 	 * 查询id
 	 * @return
 	 */
