@@ -41,6 +41,16 @@
 	</mvc:annotation-driven>
 
 	<mvc:default-servlet-handler />
+	
+	<!-- 权限拦截器 -->
+	<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/api/**" />
+			<mvc:exclude-mapping path="/api/users/loginIn" />
+			<mvc:exclude-mapping path="/api/users/loginOut" />
+			<bean class="com.accp.interceptor.SessionValidateInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors> -->
 
 	<!-- 视图资源文件视图解析器 -->
 	<!-- <bean

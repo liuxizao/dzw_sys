@@ -18,6 +18,11 @@ public class ClientcarBiz {
 	private LtClientcarDao clicardao;
 	@Autowired
 	private ClientcarMapper clicar;
+	
+	//按车牌号修改车辆信息
+	public int updateByPrimaryKeySelective(Clientcar record) {
+		return this.clicar.updateByPrimaryKeySelective(record);
+	}
 
 	// 按手机号查询车辆
 	public List<Clientcar> selClientcarPhone(String phone) {

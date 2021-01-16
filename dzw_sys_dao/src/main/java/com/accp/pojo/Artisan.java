@@ -29,27 +29,7 @@ public class Artisan {
 
     private Date arzday;
 
-    public Artisan() {}
-    
-    public Artisan(String aphone, Integer sid, Integer zid, Integer tid, String aname, Integer asex, String address,
-			String acaid, String acraft, Integer azt, String alzyy, Date alzday, Date arzday) {
-		super();
-		this.aphone = aphone;
-		this.sid = sid;
-		this.zid = zid;
-		this.tid = tid;
-		this.aname = aname;
-		this.asex = asex;
-		this.address = address;
-		this.acaid = acaid;
-		this.acraft = acraft;
-		this.azt = azt;
-		this.alzyy = alzyy;
-		this.alzday = alzday;
-		this.arzday = arzday;
-	}
-
-	public String getAphone() {
+    public String getAphone() {
         return aphone;
     }
 
