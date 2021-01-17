@@ -33,6 +33,14 @@ public class loginAction {
 	@Resource
 	private LoginBiz login;
 
+	// 退出登录
+		@GetMapping("/tui")
+		public String selLogin(HttpSession session) {
+			session.removeAttribute("USER");
+			return "";
+		}
+	
+	
 	// 登陆且查询大节点
 	@GetMapping("{phone}/{pwd}")
 	public Employee selLogin(@PathVariable String phone, @PathVariable String pwd, HttpSession session) {
