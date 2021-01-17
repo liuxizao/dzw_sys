@@ -38,4 +38,12 @@
   <select id="selfunctiom" resultType="com.accp.pojo.Tblfunction">
   	SELECT * FROM tbl_function WHERE fid=#{fid} and fpid=0
   </select>
+  
+  <!-- 查询当日维修数据 -->
+  <select id="selWeixiu" resultType="java.lang.Integer">
+  	SELECT COUNT(*) FROM inststion WHERE izt=0
+  	<if test="iszn!=-1">
+  	 and iszn=#{iszn}
+  	</if>
+  </select>
 </mapper>

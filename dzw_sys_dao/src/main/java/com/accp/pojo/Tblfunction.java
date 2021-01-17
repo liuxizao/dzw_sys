@@ -1,53 +1,55 @@
 package com.accp.pojo;
 
+import java.util.List;
+
 public class Tblfunction {
-    private Integer fid;
+	private Integer fid;
 
-    private String fcode;
+	private String fcode;
 
-    private String fname;
+	private String fname;
 
-    private Integer fpid;
-    
-    private Tblfunction tblfunction;
+	private Integer fpid;
 
-    public Tblfunction getTblfunction() {
+	private List<Tblfunction> tblfunction;
+
+	public List<Tblfunction> getTblfunction() {
 		return tblfunction;
 	}
 
-	public void setTblfunction(Tblfunction tblfunction) {
+	public void setTblfunction(List<Tblfunction> tblfunction) {
 		this.tblfunction = tblfunction;
 	}
 
 	public Integer getFid() {
-        return fid;
-    }
+		return fid;
+	}
 
-    public void setFid(Integer fid) {
-        this.fid = fid;
-    }
+	public void setFid(Integer fid) {
+		this.fid = fid;
+	}
 
-    public String getFcode() {
-        return fcode;
-    }
+	public String getFcode() {
+		return fcode;
+	}
 
-    public void setFcode(String fcode) {
-        this.fcode = fcode == null ? null : fcode.trim();
-    }
+	public void setFcode(String fcode) {
+		this.fcode = fcode == null ? null : fcode.trim();
+	}
 
-    public String getFname() {
-        return fname;
-    }
+	public String getFname() {
+		return fname;
+	}
 
-    public void setFname(String fname) {
-        this.fname = fname == null ? null : fname.trim();
-    }
+	public void setFname(String fname) {
+		this.fname = fname == null ? null : fname.trim();
+	}
 
-    public Integer getFpid() {
-        return fpid;
-    }
+	public Integer getFpid() {
+		return fpid;
+	}
 
-    public void setFpid(Integer fpid) {
-        this.fpid = fpid;
-    }
+	public void setFpid(Integer fpid) {
+		this.fpid = fpid;
+	}
 }
