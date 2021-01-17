@@ -28,14 +28,24 @@ public class LjyCashiersAction {
 	@Resource
 	private LjyCashiersBiz ljyCashiersBiz;
 	
-	@GetMapping("selectByPrimaryKey")
-	public List<Cashiers> selectByPrimaryKey() {
-		return ljyCashiersBiz.selectByPrimaryKey();
+	@GetMapping("selectByPrimaryKey/{phone}/{kk}")
+	public List<Cashiers> selectByPrimaryKey(@PathVariable String phone,@PathVariable String kk) {
+		return ljyCashiersBiz.selectByPrimaryKey(phone,kk);
 	}
 	
 	@GetMapping("selectByPrimaryKeyByinid/{inid}")
 	public List<Wxxq> selectByPrimaryKeyByinid(@PathVariable String inid) {
 		return ljyCashiersBiz.selectByPrimaryKeyByinid(inid);
+	}
+	
+	@GetMapping("selectyAllHyljyczByphone/{phone}")
+	public  List<Chongzhi>  selectyAllHyljyczByphone(@PathVariable String phone) {
+		return ljyCashiersBiz.selectyAllHyljyczByphone(phone);
+	}
+	
+	@GetMapping("selectyAllHyljycztjByphone/{tj}")
+	public  Client  selectyAllHyljycztjByphone(@PathVariable String tj) {
+		return ljyCashiersBiz.selectyAllHyljycztjByphone(tj);
 	}
 	
 	@GetMapping("selectClient/{cno}")

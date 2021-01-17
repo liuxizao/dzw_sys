@@ -2,6 +2,10 @@ package com.accp.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class Client {
     private String cliphone;
 
@@ -11,11 +15,14 @@ public class Client {
 
     private String cliaddress;
 
+    @JSONField(format = "yyyy-MM-dd")
     private Date clidate;
 
     private Integer mid;
 
     private Float baifb;
+
+    @JSONField(format = "yyyy-MM-dd")
 
     private Date rhdate;
 

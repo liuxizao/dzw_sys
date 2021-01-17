@@ -3,7 +3,7 @@ package com.accp.pojo;
 public class Wxxq {
     private Integer xqid;
 
-    private Integer inid;
+    private String inid;
 
     private String xqname;
 
@@ -23,11 +23,11 @@ public class Wxxq {
         this.xqid = xqid;
     }
 
-    public Integer getInid() {
+    public String getInid() {
         return inid;
     }
 
-    public void setInid(Integer inid) {
+    public void setInid(String inid) {
         this.inid = inid;
     }
 

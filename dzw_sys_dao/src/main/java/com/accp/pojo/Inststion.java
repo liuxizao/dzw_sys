@@ -2,8 +2,10 @@ package com.accp.pojo;
 
 import java.util.Date;
 
+import java.util.List;
+
 public class Inststion {
-    private Integer inid;
+    private String inid;
 
     private Integer wid;
 
@@ -30,12 +32,53 @@ public class Inststion {
     private Integer ifjs;
 
     private String insevent;
+    
+	private Workcar workcar;//外派车辆表-车辆车牌
+    
+    private Team team;//班组表-班组名称
+    
+    private Clientcar car;//客户信息
+    
+    private List<Wxxq> wxxq;//维修详情表
+    
+    public Workcar getWorkcar() {
+		return workcar;
+	}
 
-    public Integer getInid() {
+	public List<Wxxq> getWxxq() {
+		return wxxq;
+	}
+
+	public void setWxxq(List<Wxxq> wxxq) {
+		this.wxxq = wxxq;
+	}
+
+	public void setWorkcar(Workcar workcar) {
+		this.workcar = workcar;
+	}
+
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+
+	public Clientcar getCar() {
+		return car;
+	}
+
+	public void setCar(Clientcar car) {
+		this.car = car;
+	}
+
+	public String getInid() {
         return inid;
     }
 
-    public void setInid(Integer inid) {
+    public void setInid(String inid) {
+
         this.inid = inid;
     }
 

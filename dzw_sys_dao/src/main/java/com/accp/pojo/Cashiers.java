@@ -14,6 +14,7 @@ public class Cashiers {
     private String paymenttemp;
 
     private Date casdate;
+
     
     
     private int wid;
@@ -171,5 +172,4 @@ public class Cashiers {
 		super();
 	}
 	
-   
 }

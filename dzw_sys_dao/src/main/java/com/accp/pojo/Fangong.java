@@ -3,7 +3,8 @@ package com.accp.pojo;
 public class Fangong {
     private Integer fid;
 
-    private Integer inid;
+
+    private String inid;
 
     private Float koufei;
 
@@ -21,15 +22,15 @@ public class Fangong {
         this.fid = fid;
     }
 
-    public Integer getInid() {
-        return inid;
-    }
+    public String getInid() {
+		return inid;
+	}
 
-    public void setInid(Integer inid) {
-        this.inid = inid;
-    }
+	public void setInid(String inid) {
+		this.inid = inid;
+	}
 
-    public Float getKoufei() {
+	public Float getKoufei() {
         return koufei;
     }
 

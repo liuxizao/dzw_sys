@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.accp.dao.InststionMapper" >
   <resultMap id="BaseResultMap" type="com.accp.pojo.Inststion" >
-    <id column="inid" property="inid" jdbcType="INTEGER" />
+
+    <id column="inid" property="inid" jdbcType="VARCHAR" />
     <result column="wid" property="wid" jdbcType="INTEGER" />
     <result column="aphone" property="aphone" jdbcType="VARCHAR" />
     <result column="tid" property="tid" jdbcType="INTEGER" />
@@ -24,18 +25,18 @@
     select 
     <include refid="Base_Column_List" />
     from inststion
-    where inid = #{inid,jdbcType=INTEGER}
+    where inid = #{inid,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from inststion
-    where inid = #{inid,jdbcType=INTEGER}
+    where inid = #{inid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.accp.pojo.Inststion" >
     insert into inststion (inid, wid, aphone, 
       tid, cno, izt, jdate, 
       jcday, yjday, wgday, iszn, 
       lc, ifjs, insevent)
-    values (#{inid,jdbcType=INTEGER}, #{wid,jdbcType=INTEGER}, #{aphone,jdbcType=VARCHAR}, 
+    values (#{inid,jdbcType=VARCHAR}, #{wid,jdbcType=INTEGER}, #{aphone,jdbcType=VARCHAR}, 
       #{tid,jdbcType=INTEGER}, #{cno,jdbcType=VARCHAR}, #{izt,jdbcType=INTEGER}, #{jdate,jdbcType=DATE}, 
       #{jcday,jdbcType=DATE}, #{yjday,jdbcType=DATE}, #{wgday,jdbcType=DATE}, #{iszn,jdbcType=INTEGER}, 
       #{lc,jdbcType=INTEGER}, #{ifjs,jdbcType=INTEGER}, #{insevent,jdbcType=VARCHAR})
@@ -88,7 +89,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="inid != null" >
-        #{inid,jdbcType=INTEGER},
+        #{inid,jdbcType=VARCHAR},
       </if>
       <if test="wid != null" >
         #{wid,jdbcType=INTEGER},
@@ -174,7 +175,7 @@
         insevent = #{insevent,jdbcType=VARCHAR},
       </if>
     </set>
-    where inid = #{inid,jdbcType=INTEGER}
+    where inid = #{inid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Inststion" >
     update inststion
@@ -191,6 +192,6 @@
       lc = #{lc,jdbcType=INTEGER},
       ifjs = #{ifjs,jdbcType=INTEGER},
       insevent = #{insevent,jdbcType=VARCHAR}
-    where inid = #{inid,jdbcType=INTEGER}
+    where inid = #{inid,jdbcType=VARCHAR}
   </update>
 </mapper>

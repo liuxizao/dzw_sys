@@ -1,5 +1,8 @@
 package com.accp.pojo;
 
+
+import java.util.List;
+
 public class Team {
     private Integer tid;
 
@@ -7,7 +10,20 @@ public class Team {
 
     private Integer tzhuant;
 
-    public Integer getTid() {
+    private Integer sid;
+    
+    private List<Artisan> artisan;
+    
+
+    public List<Artisan> getArtisan() {
+		return artisan;
+	}
+
+	public void setArtisan(List<Artisan> artisan) {
+		this.artisan = artisan;
+	}
+
+	public Integer getTid() {
         return tid;
     }
 
@@ -29,5 +45,14 @@ public class Team {
 
     public void setTzhuant(Integer tzhuant) {
         this.tzhuant = tzhuant;
+    }
+
+    public Integer getSid() {
+        return sid;
+    }
+
+    public void setSid(Integer sid) {
+        this.sid = sid;
+
     }
 }

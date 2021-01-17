@@ -13,7 +13,7 @@ import com.accp.pojo.LjyWorkcar;
 import com.accp.pojo.Wxxq;
 
 public interface LjyCashiers {
-	List<Cashiers> selectByPrimaryKey();
+	List<Cashiers> selectByPrimaryKey(@Param("phone") String phone,@Param("kk") String kk);
 	
 	List<Wxxq> selectByPrimaryKeyByinid(@Param("inid") String inid);
 	
@@ -49,6 +49,20 @@ public interface LjyCashiers {
 	 * @return
 	 */
 	List<Client> selectyAllHyljy(@Param("phone") String phone);
+	
+	/**
+	 * 根据手机号查询会员所有充值记录
+	 * @param inid
+	 * @return
+	 */
+	List<Chongzhi> selectyAllHyljyczByphone(@Param("phone") String phone);
+	
+	/**
+	 * 根据会员手机号或会员名称查询
+	 * @param inid
+	 * @return
+	 */
+	Client selectyAllHyljycztjByphone(@Param("tj") String tj);
 	
 	/**
 	 * 根据手机号查询指定会员

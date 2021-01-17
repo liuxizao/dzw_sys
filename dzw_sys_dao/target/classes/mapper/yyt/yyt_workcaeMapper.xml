@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.yyt.yyt_workcarMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Workcar" >
+    <id column="wid" property="wid" jdbcType="INTEGER" />
+    <result column="caid" property="caid" jdbcType="VARCHAR" />
+    <result column="cbrand" property="cbrand" jdbcType="VARCHAR" />
+    <result column="czt" property="czt" jdbcType="INTEGER" />
+    <result column="qbj" property="qbj" jdbcType="REAL" />
+    <result column="ccj" property="ccj" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    wid, caid, cbrand, czt, qbj, ccj
+  </sql>
+  <select id="selectWorkccarAll" resultMap="BaseResultMap" parameterType="com.accp.pojo.Workcar" >
+    select 
+    <include refid="Base_Column_List" />
+    from workcar
+    where caid like '%${caid}%'
+    <if test="czt!=null">
+    and czt=#{czt}
+    </if>
+  </select>
+  
+</mapper>

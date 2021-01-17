@@ -2,6 +2,8 @@ package com.accp.pojo;
 
 import java.util.Date;
 
+import java.util.List;
+
 public class Employee {
     private String ephone;
 
@@ -26,8 +28,29 @@ public class Employee {
     private String eyunayin;
 
     private String ename;
+    
+    private Zhiwei zwei;
+    
+    private List<Tblperm> tblperm;
 
-    public String getEphone() {
+    public Zhiwei getZwei() {
+		return zwei;
+	}
+
+	public void setZwei(Zhiwei zwei) {
+		this.zwei = zwei;
+	}
+
+	public List<Tblperm> getTblperm() {
+		return tblperm;
+	}
+
+	public void setTblperm(List<Tblperm> tblperm) {
+		this.tblperm = tblperm;
+	}
+
+	public String getEphone() {
+
         return ephone;
     }
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.accp.dao.WxxqMapper" >
   <resultMap id="BaseResultMap" type="com.accp.pojo.Wxxq" >
     <id column="xqid" property="xqid" jdbcType="INTEGER" />
-    <result column="inid" property="inid" jdbcType="INTEGER" />
+    <result column="inid" property="inid" jdbcType="VARCHAR" />
     <result column="xqname" property="xqname" jdbcType="VARCHAR" />
     <result column="xqsl" property="xqsl" jdbcType="INTEGER" />
     <result column="spid" property="spid" jdbcType="INTEGER" />
@@ -27,7 +27,7 @@
     insert into wxxq (xqid, inid, xqname, 
       xqsl, spid, zt, xmoney
       )
-    values (#{xqid,jdbcType=INTEGER}, #{inid,jdbcType=INTEGER}, #{xqname,jdbcType=VARCHAR}, 
+    values (#{xqid,jdbcType=INTEGER}, #{inid,jdbcType=VARCHAR}, #{xqname,jdbcType=VARCHAR}, 
       #{xqsl,jdbcType=INTEGER}, #{spid,jdbcType=INTEGER}, #{zt,jdbcType=INTEGER}, #{xmoney,jdbcType=REAL}
       )
   </insert>
@@ -61,7 +61,7 @@
         #{xqid,jdbcType=INTEGER},
       </if>
       <if test="inid != null" >
-        #{inid,jdbcType=INTEGER},
+        #{inid,jdbcType=VARCHAR},
       </if>
       <if test="xqname != null" >
         #{xqname,jdbcType=VARCHAR},
@@ -84,7 +84,7 @@
     update wxxq
     <set >
       <if test="inid != null" >
-        inid = #{inid,jdbcType=INTEGER},
+        inid = #{inid,jdbcType=VARCHAR},
       </if>
       <if test="xqname != null" >
         xqname = #{xqname,jdbcType=VARCHAR},
@@ -106,7 +106,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Wxxq" >
     update wxxq
-    set inid = #{inid,jdbcType=INTEGER},
+    set inid = #{inid,jdbcType=VARCHAR},
       xqname = #{xqname,jdbcType=VARCHAR},
       xqsl = #{xqsl,jdbcType=INTEGER},
       spid = #{spid,jdbcType=INTEGER},

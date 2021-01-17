@@ -31,10 +31,8 @@
     from shop
     where shopid = #{shopid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from shop
-    where shopid = #{shopid,jdbcType=INTEGER}
-  </delete>
+
+  
   <insert id="insert" parameterType="com.accp.pojo.Shop" >
     insert into shop (shopid, goodid, firmid, 
       shopname, weight, stockprice, 
@@ -118,7 +116,36 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Shop" >
+ 
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.accp.pojo.Shop" >
+    update shop
+    set goodid = #{goodid,jdbcType=INTEGER},
+      firmid = #{firmid,jdbcType=INTEGER},
+      shopname = #{shopname,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=INTEGER},
+      stockprice = #{stockprice,jdbcType=REAL},
+      sellingprice = #{sellingprice,jdbcType=REAL},
+      quantity = #{quantity,jdbcType=INTEGER},
+      agreement = #{agreement,jdbcType=REAL},
+      numbering = #{numbering,jdbcType=VARCHAR},
+      image = #{image,jdbcType=LONGVARCHAR}
+    where shopid = #{shopid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Shop" >
+    update shop
+    set goodid = #{goodid,jdbcType=INTEGER},
+      firmid = #{firmid,jdbcType=INTEGER},
+      shopname = #{shopname,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=INTEGER},
+      stockprice = #{stockprice,jdbcType=REAL},
+      sellingprice = #{sellingprice,jdbcType=REAL},
+      quantity = #{quantity,jdbcType=INTEGER},
+      agreement = #{agreement,jdbcType=REAL},
+      numbering = #{numbering,jdbcType=VARCHAR}
+    where shopid = #{shopid,jdbcType=INTEGER}
+  </update>
+  
+   <update id="updateByPrimaryKeySelective" parameterType="com.accp.pojo.Shop" >
     update shop
     <set >
       <if test="goodid != null" >
@@ -154,31 +181,9 @@
     </set>
     where shopid = #{shopid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.accp.pojo.Shop" >
-    update shop
-    set goodid = #{goodid,jdbcType=INTEGER},
-      firmid = #{firmid,jdbcType=INTEGER},
-      shopname = #{shopname,jdbcType=VARCHAR},
-      weight = #{weight,jdbcType=INTEGER},
-      stockprice = #{stockprice,jdbcType=REAL},
-      sellingprice = #{sellingprice,jdbcType=REAL},
-      quantity = #{quantity,jdbcType=INTEGER},
-      agreement = #{agreement,jdbcType=REAL},
-      numbering = #{numbering,jdbcType=VARCHAR},
-      image = #{image,jdbcType=LONGVARCHAR}
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shop
     where shopid = #{shopid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.accp.pojo.Shop" >
-    update shop
-    set goodid = #{goodid,jdbcType=INTEGER},
-      firmid = #{firmid,jdbcType=INTEGER},
-      shopname = #{shopname,jdbcType=VARCHAR},
-      weight = #{weight,jdbcType=INTEGER},
-      stockprice = #{stockprice,jdbcType=REAL},
-      sellingprice = #{sellingprice,jdbcType=REAL},
-      quantity = #{quantity,jdbcType=INTEGER},
-      agreement = #{agreement,jdbcType=REAL},
-      numbering = #{numbering,jdbcType=VARCHAR}
-    where shopid = #{shopid,jdbcType=INTEGER}
-  </update>
+  </delete>
 </mapper>

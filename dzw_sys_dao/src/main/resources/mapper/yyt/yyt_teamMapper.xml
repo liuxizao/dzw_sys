@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.yyt.yyt_teamMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Team" >
+    <id column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="tzhuant" property="tzhuant" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tid, tname, tzhuant,sid
+  </sql>
+ 
+ <resultMap type="com.accp.pojo.Team" id="query" autoMapping="true">
+    <id column="tid" property="tid" jdbcType="INTEGER" />
+    <collection property="artisan" column="tid" select="queryArtisan"></collection>
+  </resultMap>
+  
+  <select id="selectTeamAll" resultMap="query">
+  	select * from team
+  </select>
+  
+  <select id="queryArtisan" resultType="com.accp.pojo.Artisan">
+  select * from artisan where tid=#{tid}
+  </select>
+  
+  
+  
+</mapper>
