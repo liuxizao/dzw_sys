@@ -1,5 +1,6 @@
 package com.accp.pojo;
 
+
 import java.util.List;
 
 public class Team {
@@ -52,5 +53,6 @@ public class Team {
 
     public void setSid(Integer sid) {
         this.sid = sid;
+
     }
 }

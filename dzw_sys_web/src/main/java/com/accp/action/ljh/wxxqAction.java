@@ -13,7 +13,11 @@ import com.accp.pojo.Wxxq;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-
+/**
+ * 
+ * @author Yang Yu Tao
+ *
+ */
 @RestController
 @RequestMapping("/api/Wxxqs")
 public class wxxqAction {

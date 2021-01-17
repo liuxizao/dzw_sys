@@ -65,13 +65,14 @@ public class LoginBiz {
 		return this.login.selZhiweiAll();
 	}
 	
-	//登陆且查询大节点
-	public Employee selLogin(String phone,String pwd) {
+
+	// 登陆且查询大节点
+	public Employee selLogin(String phone, String pwd) {
 		return login.selLogin(phone, pwd);
 	}
-	
-	//查询小节点
-	public List<Tblfunction> selXiao(Integer zid,Integer fid) {
-		return login.selXiao(zid,fid);
+
+	// 查询小节点
+	public List<Tblfunction> selXiao(Integer zid, Integer fid) {
+		return login.selXiao(zid, fid);
 	}
 }

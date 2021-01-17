@@ -3,6 +3,7 @@ package com.accp.pojo;
 public class Fangong {
     private Integer fid;
 
+
     private String inid;
 
     private Float koufei;

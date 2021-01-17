@@ -13,6 +13,7 @@ public class Chongzhi {
 
     private String cbh;
 
+
     private Date czdate;
 
     public Integer getCid() {

@@ -54,6 +54,11 @@
 			<artifactId>dzw_sys_services</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.alipay.sdk</groupId>
+			<artifactId>alipay-sdk-java</artifactId>
+			<version>4.10.145.ALL</version>
+		</dependency>
 	</dependencies>
 
 	<build>

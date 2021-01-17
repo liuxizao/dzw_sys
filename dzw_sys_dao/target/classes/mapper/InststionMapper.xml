@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.accp.dao.InststionMapper" >
   <resultMap id="BaseResultMap" type="com.accp.pojo.Inststion" >
+
     <id column="inid" property="inid" jdbcType="VARCHAR" />
     <result column="wid" property="wid" jdbcType="INTEGER" />
     <result column="aphone" property="aphone" jdbcType="VARCHAR" />
