@@ -11,7 +11,7 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 
 @RestController
-@RequestMapping("/api/dzwpay")
+@RequestMapping("/api/lt/dzwpay")
 public class PayAction {
 
 	@RequestMapping("/pay/{out_trade_no}/{total_amount}/{subject}/{body}")
