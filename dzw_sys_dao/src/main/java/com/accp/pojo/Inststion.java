@@ -1,6 +1,7 @@
 package com.accp.pojo;
 
 import java.util.Date;
+
 import java.util.List;
 
 public class Inststion {
@@ -77,6 +78,7 @@ public class Inststion {
     }
 
     public void setInid(String inid) {
+
         this.inid = inid;
     }
 

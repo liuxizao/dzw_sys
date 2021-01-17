@@ -5,6 +5,7 @@
     <id column="tid" property="tid" jdbcType="INTEGER" />
     <result column="tname" property="tname" jdbcType="VARCHAR" />
     <result column="tzhuant" property="tzhuant" jdbcType="INTEGER" />
+
     <result column="sid" property="sid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >

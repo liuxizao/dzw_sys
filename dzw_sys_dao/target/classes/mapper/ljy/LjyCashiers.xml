@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ljy.LjyCashiers" >
+  <resultMap id="BaseResultMap" type="com.accp.pojo.Cashiers" >
+    <id column="casid" property="casid" jdbcType="VARCHAR" />
+    <result column="inid" property="inid" jdbcType="INTEGER" />
+    <result column="cassprice" property="cassprice" jdbcType="REAL" />
+    <result column="shisprice" property="shisprice" jdbcType="REAL" />
+    <result column="paymenttemp" property="paymenttemp" jdbcType="VARCHAR" />
+    <result column="casdate" property="casdate" jdbcType="DATE" />
+  </resultMap>
+
+  <select id="selectByPrimaryKey" resultType="com.accp.pojo.Cashiers" >
+	SELECT * FROM cashiers AS c,inststion AS i
+	WHERE c.inid=i.inid 
+	<if test="phone!='null' and phone!='' and phone!='undefined'">
+		and i.cno like '%${phone}%'
+	</if>
+	<if test="kk!='-1'">
+		and i.ifjs=#{kk}
+	</if>
+  </select>
+  
+    <select id="selectByPrimaryKeyByinid" resultType="com.accp.pojo.Wxxq" >
+	SELECT * FROM wxxq
+	WHERE inid=#{inid}
+  </select>
+  
+  <select id="selectClient" resultType="com.accp.pojo.Client" >
+	SELECT c.* FROM `client` AS c,`clientcar` AS cl
+WHERE c.cliphone=cl.cliphone AND cl.cno=#{cno}
+  </select>
+  
+  <select id="selectClientcar" resultType="com.accp.pojo.Clientcar" >
+	SELECT cl.* FROM `clientcar` AS cl
+	WHERE cl.cliphone=#{cno}
+  </select>
+  
+  
+   <select id="selectyAllHyljy" resultType="com.accp.pojo.Client" >
+	SELECT * FROM `client`
+	WHERE mid=0
+	<if test="phone!='null' and phone!='' and phone!='undefined'">
+		and cliphone like '%${phone}%'
+	</if>	
+	<if test="phone!='null' and phone!='' and phone!='undefined'">
+		OR cliname  like '%${phone}%'
+	</if>	
+	
+  </select>
+  
+   <select id="selectyAllHyljyByphone" resultType="com.accp.pojo.Client" >
+	SELECT * FROM `client`
+	WHERE mid=0 and cliphone =#{phone}
+  </select>
+  
+    <select id="selectyAllHyljycztjByphone" resultType="com.accp.pojo.Client" >
+	 SELECT * FROM `client`
+	WHERE cliphone =#{tj} OR cliname=#{tj}
+  </select>
+ 
+  
+   <select id="selectyAllHyljyczByphone" resultType="com.accp.pojo.Chongzhi" >
+	SELECT * FROM chongzhi
+	WHERE cliphone =#{phone}
+  </select>
+  
+  <select id="selectLjyWorkcar" resultType="com.accp.pojo.LjyWorkcar" >
+	SELECT * FROM `inststion` AS i,`workcar` AS w
+WHERE i.`wid`=w.wid AND i.`inid`=#{inid}
+  </select>
+  
+ <update id="updateByinid" >
+     UPDATE inststion
+		SET `ifjs`=0
+		WHERE inid=#{inid}
+  </update>
+  
+   <update id="updateBycno" >
+     UPDATE inststion
+		SET `ifjs`=0
+		WHERE cno=#{cno}
+  </update>
+  
+   <update id="updateByphone" >
+     UPDATE `client`
+	SET `yue`=yue-#{jg}
+	WHERE cliphone=#{phone}
+  </update>
+  
+ <update id="updateczByphone">
+    update `client`
+	set yue=yue+#{je},`mid`=0
+	where cliphone=#{phone}
+  </update>
+  
+  <update id="updateczkkByphone">
+    update `client`
+	set yue=yue+#{je},`mid`=0,rhdate=#{time}
+	where cliphone=#{phone}
+  </update>
+  
+    <insert id="insaddCz">
+   INSERT INTO `chongzhi`(`cid`,`cliphone`,`cztype`,`cmoney`,`cbh`,`czdate`)
+VALUES(0,#{phone},#{zf},#{je},#{bh},#{time}) 
+  </insert>
+  
+  <delete id="deletezc" >
+   DELETE FROM `chongzhi`
+WHERE cliphone=#{phone}
+  </delete>
+  
+   <update id="updatehy">
+    UPDATE `client`
+SET `mid`=1,yue=0,rhdate=NULL
+WHERE cliphone=#{phone}
+  </update>
+</mapper>

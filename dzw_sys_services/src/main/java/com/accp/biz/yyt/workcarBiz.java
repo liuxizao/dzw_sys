@@ -15,59 +15,64 @@ import com.accp.dao.yyt.yyt_workcarMapper;
 import com.accp.pojo.Workcar;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
 @Service
 public class workcarBiz {
 
 	@Autowired
-	private yyt_workcarMapper yytMapper;//yyt
+	private yyt_workcarMapper yytMapper;// yyt
 	@Autowired
-	private WorkcarMapper mapper;//公共
-	
+	private WorkcarMapper mapper;// 公共
+
 	/**
 	 * 查询
+	 * 
 	 * @param w
 	 * @return
 	 */
-	public PageInfo<Workcar> selectWorkcarAll(Workcar w,Integer size,
-			Integer currentPage){
-		PageHelper.startPage(currentPage,size);
+	public PageInfo<Workcar> selectWorkcarAll(Workcar w, Integer size, Integer currentPage) {
+		PageHelper.startPage(currentPage, size);
 		return new PageInfo<Workcar>(yytMapper.selectWorkccarAll(w));
 	}
-	
+
 	/**
 	 * 新增
+	 * 
 	 * @param w
 	 * @return
 	 */
 	public int insertWorkcar(Workcar w) {
 		return mapper.insertSelective(w);
 	}
-	
+
 	/**
 	 * 删除
+	 * 
 	 * @param wid
 	 * @return
 	 */
 	public int deleteWorkcar(Integer wid) {
 		return mapper.deleteByPrimaryKey(wid);
 	}
-	
+
 	/**
 	 * 修改
+	 * 
 	 * @param w
 	 * @return
 	 */
 	public int updateWorkcar(Workcar w) {
 		return mapper.updateByPrimaryKeySelective(w);
 	}
-	
+
 	/**
 	 * 根据车牌号查询
+	 * 
 	 * @param caid
 	 * @return
 	 */
 	public int selectByCaid(String caid) {
 		return yytMapper.selectByCaid(caid);
 	}
-	
+
 }
