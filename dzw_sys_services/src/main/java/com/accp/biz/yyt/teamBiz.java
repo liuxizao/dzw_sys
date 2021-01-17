@@ -1,4 +1,5 @@
 package com.accp.biz.yyt;
+
 /**
  * 
  * @author Yang Yu Tao
@@ -18,68 +19,75 @@ import com.accp.pojo.Team;
 public class teamBiz {
 
 	@Autowired
-	private yyt_teamMapper yytMapper;//yyt
+	private yyt_teamMapper yytMapper;// yyt
 	@Autowired
-	private TeamMapper mapper;//公共Mapper
-	
+	private TeamMapper mapper;// 公共Mapper
+
 	/**
 	 * 根据状态查询当前班组
+	 * 
 	 * @return
 	 */
-	public List<Team> selectByZt(){
+	public List<Team> selectByZt() {
 		return yytMapper.selectByZt();
 	}
-	
+
 	/**
-	 * 查询所有   连表查询技工表
+	 * 查询所有 连表查询技工表
+	 * 
 	 * @return
 	 */
-	public List<Team> selectTeamAll(){
+	public List<Team> selectTeamAll() {
 		return yytMapper.selectTeamAll();
 	}
-	
+
 	/**
 	 * 新增
+	 * 
 	 * @param t
 	 * @return
 	 */
 	public int insertTeam(Team t) {
 		return mapper.insertSelective(t);
 	}
-	
+
 	/**
 	 * 修改
+	 * 
 	 * @param t
 	 * @return
 	 */
 	public int updateTeam(Team t) {
 		return mapper.updateByPrimaryKeySelective(t);
 	}
-	
+
 	/**
 	 * 删除
+	 * 
 	 * @param tid
 	 * @return
 	 */
 	public int deleteTeam(Integer tid) {
 		return mapper.deleteByPrimaryKey(tid);
 	}
-	
+
 	/**
 	 * 查询所有
+	 * 
 	 * @return
 	 */
-	public List<Team> selectTeam(){
+	public List<Team> selectTeam() {
 		return yytMapper.selectTeam();
 	}
-	
+
 	/**
 	 * 根据名称查询
+	 * 
 	 * @param name
 	 * @return
 	 */
 	public Team selectByName(String name) {
 		return yytMapper.selectByName(name);
 	}
-	
+
 }

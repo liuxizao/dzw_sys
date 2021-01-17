@@ -23,6 +23,7 @@ public class Client {
     private Float baifb;
 
     @JSONField(format = "yyyy-MM-dd")
+
     private Date rhdate;
 
     private Float yue;

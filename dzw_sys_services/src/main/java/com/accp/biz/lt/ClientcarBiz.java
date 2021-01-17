@@ -18,8 +18,8 @@ public class ClientcarBiz {
 	private LtClientcarDao clicardao;
 	@Autowired
 	private ClientcarMapper clicar;
-	
-	//按车牌号修改车辆信息
+
+	// 按车牌号修改车辆信息
 	public int updateByPrimaryKeySelective(Clientcar record) {
 		return this.clicar.updateByPrimaryKeySelective(record);
 	}
@@ -30,7 +30,7 @@ public class ClientcarBiz {
 	}
 
 	// 按手机号查询车辆
-	public PageInfo<Clientcar> selCarcno(Integer pageNum,Integer pageSize,String cno) {
+	public PageInfo<Clientcar> selCarcno(Integer pageNum, Integer pageSize, String cno) {
 		PageHelper.startPage(pageNum, pageSize);
 		return new PageInfo<Clientcar>(this.clicardao.selClientcarPhone(null, cno));
 	}
