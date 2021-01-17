@@ -18,6 +18,7 @@ import com.accp.pojo.Cashiers;
 import com.accp.pojo.Chongzhi;
 import com.accp.pojo.Client;
 import com.accp.pojo.Clientcar;
+import com.accp.pojo.Inststion;
 import com.accp.pojo.LjyChongzhi;
 import com.accp.pojo.LjyWorkcar;
 import com.accp.pojo.Wxxq;
@@ -29,7 +30,7 @@ public class LjyCashiersAction {
 	private LjyCashiersBiz ljyCashiersBiz;
 	
 	@GetMapping("selectByPrimaryKey/{phone}/{kk}")
-	public List<Cashiers> selectByPrimaryKey(@PathVariable String phone,@PathVariable String kk) {
+	public List<Inststion> selectByPrimaryKey(@PathVariable String phone,@PathVariable String kk) {
 		return ljyCashiersBiz.selectByPrimaryKey(phone,kk);
 	}
 	
@@ -114,6 +115,15 @@ public class LjyCashiersAction {
 		return ljyCashiersBiz.insaddCz(phone,zf,je,"0",dqsj);
 	}
 	
+	@PostMapping("insaddsyjl/{inid}/{price}/{zf}")
+	public int insaddsyjl(@PathVariable String inid,@PathVariable String price,@PathVariable String zf){
+		System.out.println("贾克斯京东卡黄寺大街卡和数据库的哈"+inid+price+zf);
+		Date d=new Date();
+		SimpleDateFormat s=new SimpleDateFormat("yyyyMMddhhmmss");
+		String dqsj=s.format(d);
+		return ljyCashiersBiz.insaddsyjl(dqsj,inid,price,zf,dqsj);
+	}
+	
 	@PostMapping("deletezc/{phone}")
 	public int deletezc(@PathVariable String phone){
 		return ljyCashiersBiz.deletezc(phone);
@@ -123,4 +133,6 @@ public class LjyCashiersAction {
 	public int updatehy(@PathVariable String phone){
 		return ljyCashiersBiz.updatehy(phone);
 	}
+	
+	
 }

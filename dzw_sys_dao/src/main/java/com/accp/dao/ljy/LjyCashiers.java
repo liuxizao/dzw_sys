@@ -8,12 +8,13 @@ import com.accp.pojo.Cashiers;
 import com.accp.pojo.Chongzhi;
 import com.accp.pojo.Client;
 import com.accp.pojo.Clientcar;
+import com.accp.pojo.Inststion;
 import com.accp.pojo.LjyChongzhi;
 import com.accp.pojo.LjyWorkcar;
 import com.accp.pojo.Wxxq;
 
 public interface LjyCashiers {
-	List<Cashiers> selectByPrimaryKey(@Param("phone") String phone,@Param("kk") String kk);
+	List<Inststion> selectByPrimaryKey(@Param("phone") String phone,@Param("kk") String kk) ;
 	
 	List<Wxxq> selectByPrimaryKeyByinid(@Param("inid") String inid);
 	
@@ -85,6 +86,14 @@ public interface LjyCashiers {
 	 * @return
 	 */
 	int insaddCz(@Param("phone") String phone,@Param("zf") String zf,@Param("je") String je,@Param("bh") String bh,@Param("time") String time);
+	
+	/**
+	 * 新增收银记录
+	 * @param phone
+	 * @param je
+	 * @return
+	 */
+	int insaddsyjl(@Param("cid") String cid,@Param("inid") String inid,@Param("price") String price,@Param("zf") String zf,@Param("time") String time);
 
 	/**
 	 * 删除充值记录

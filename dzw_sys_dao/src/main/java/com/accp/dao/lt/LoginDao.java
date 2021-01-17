@@ -23,7 +23,7 @@ public interface LoginDao {
 	Employee selLogin(@Param("phone")String phone,@Param("pwd")String pwd);
 	
 	//查询小的节点
-	@Select("SELECT f.* FROM tbl_perm t INNER JOIN tbl_function f ON t.fid=f.fpid WHERE zid=#{zid} AND f.fpid=#{fid}")
+	@Select("SELECT f.* FROM tbl_perm t INNER JOIN tbl_function f ON t.fid=f.fid WHERE t.zid=#{zid} AND t.fid>5 and f.fpid=#{fid}")
 	List<Tblfunction> selXiao(@Param("zid")Integer zid,@Param("fid")Integer fid);
 	
 	//查询节点

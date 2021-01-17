@@ -10,15 +10,16 @@
     <result column="casdate" property="casdate" jdbcType="DATE" />
   </resultMap>
 
-  <select id="selectByPrimaryKey" resultType="com.accp.pojo.Cashiers" >
-	SELECT * FROM cashiers AS c,inststion AS i
-	WHERE c.inid=i.inid 
+  <select id="selectByPrimaryKey" resultType="com.accp.pojo.Inststion" >
+	SELECT * FROM inststion AS i
+	<where>
 	<if test="phone!='null' and phone!='' and phone!='undefined'">
-		and i.cno like '%${phone}%'
+		 i.cno like '%${phone}%'
 	</if>
 	<if test="kk!='-1'">
 		and i.ifjs=#{kk}
 	</if>
+	</where>
   </select>
   
     <select id="selectByPrimaryKeyByinid" resultType="com.accp.pojo.Wxxq" >
@@ -103,6 +104,11 @@ WHERE i.`wid`=w.wid AND i.`inid`=#{inid}
     <insert id="insaddCz">
    INSERT INTO `chongzhi`(`cid`,`cliphone`,`cztype`,`cmoney`,`cbh`,`czdate`)
 VALUES(0,#{phone},#{zf},#{je},#{bh},#{time}) 
+  </insert>
+  
+   <insert id="insaddsyjl">
+   INSERT INTO `cashiers`( casid,`inid`,`shisprice`,`paymenttemp`,`casdate`)
+VALUES(#{cid},#{inid},#{price},#{zf},#{time})
   </insert>
   
   <delete id="deletezc" >

@@ -11,6 +11,7 @@ import com.accp.pojo.Cashiers;
 import com.accp.pojo.Chongzhi;
 import com.accp.pojo.Client;
 import com.accp.pojo.Clientcar;
+import com.accp.pojo.Inststion;
 import com.accp.pojo.LjyChongzhi;
 import com.accp.pojo.LjyWorkcar;
 import com.accp.pojo.Wxxq;
@@ -21,7 +22,7 @@ public class LjyCashiersBiz {
 	private LjyCashiers ljyCashiers;
 
 	// 查询
-	public List<Cashiers> selectByPrimaryKey(String phone,String kk) {
+	public List<Inststion> selectByPrimaryKey(String phone,String kk) {
 		return ljyCashiers.selectByPrimaryKey(phone,kk);
 	}
 
@@ -94,6 +95,11 @@ public class LjyCashiersBiz {
 	public int insaddCz(String phone, String zf, String je, String bh, String time) {
 		return ljyCashiers.insaddCz(phone, zf, je, bh, time);
 	}
+	
+	// 新增收银记录
+		public int insaddsyjl(String cid,String inid, String price, String zf, String time) {
+			return ljyCashiers.insaddsyjl(cid,inid, price, zf, time);
+		}
 
 	// 删除充值记录
 	public int deletezc(String phone) {
