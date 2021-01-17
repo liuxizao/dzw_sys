@@ -27,4 +27,5 @@ public interface LtClientDao {
 	//查询接待人员
 	@Select("SELECT * FROM employee WHERE zid=8")
 	List<Employee> selEmpljiedai();
+	
 }

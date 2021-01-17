@@ -16,7 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accp.biz.yyt.teamBiz;
 import com.accp.pojo.Team;
-
+/**
+ * 
+ * @author Yang Yu Tao
+ *
+ */
 @RestController
 @RequestMapping("/api/Teams")
 public class teamAction {
